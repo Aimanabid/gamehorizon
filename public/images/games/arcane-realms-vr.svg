@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%"   stop-color="#1A0A30"/>
+      <stop offset="60%"  stop-color="#0D0520"/>
+      <stop offset="100%" stop-color="#050110"/>
+    </radialGradient>
+    <radialGradient id="portalCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="20%"  stop-color="#D4A0FF" stop-opacity="0.7"/>
+      <stop offset="50%"  stop-color="#7B2FFF" stop-opacity="0.5"/>
+      <stop offset="80%"  stop-color="#3D0080" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="outerGlow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%"   stop-color="#7B2FFF" stop-opacity="0.4"/>
+      <stop offset="50%"  stop-color="#4B0082" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#FFD700" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#000" stop-opacity="0.6"/>
+      <stop offset="30%"  stop-color="transparent"/>
+      <stop offset="65%"  stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="glow3"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow6"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="glow15"><feGaussianBlur stdDeviation="15"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#outerGlow)"/>
+
+  <!-- Starfield -->
+  <g fill="white">
+    <circle cx="60"  cy="40"  r="1"   opacity="0.7"/>
+    <circle cx="130" cy="90"  r="1.5" opacity="0.5"/>
+    <circle cx="220" cy="30"  r="1"   opacity="0.8"/>
+    <circle cx="310" cy="70"  r="0.8" opacity="0.6"/>
+    <circle cx="500" cy="35"  r="1.2" opacity="0.7"/>
+    <circle cx="580" cy="80"  r="1"   opacity="0.5"/>
+    <circle cx="660" cy="25"  r="1.5" opacity="0.8"/>
+    <circle cx="740" cy="60"  r="1"   opacity="0.6"/>
+    <circle cx="100" cy="160" r="0.8" opacity="0.4"/>
+    <circle cx="700" cy="150" r="0.8" opacity="0.4"/>
+    <circle cx="50"  cy="350" r="0.8" opacity="0.3"/>
+    <circle cx="750" cy="340" r="0.8" opacity="0.3"/>
+  </g>
+
+  <!-- Portal outer glow -->
+  <circle cx="400" cy="210" r="150" fill="#7B2FFF" opacity="0.06" filter="url(#glow15)"/>
+
+  <!-- Outer portal ring -->
+  <circle cx="400" cy="210" r="140" fill="none" stroke="#9B59B6" stroke-width="2" opacity="0.5"/>
+  <circle cx="400" cy="210" r="140" fill="none" stroke="#7B2FFF" stroke-width="6" opacity="0.15" filter="url(#glow6)"/>
+
+  <!-- Rotating rune marks on outer ring (12 positions) -->
+  <g fill="#FFD700" opacity="0.7">
+    <rect x="396" y="66"  width="8" height="12" rx="1"/>
+    <rect x="466" y="84"  width="8" height="12" rx="1" transform="rotate(30,470,90)"/>
+    <rect x="516" y="134" width="8" height="12" rx="1" transform="rotate(60,520,140)"/>
+    <rect x="534" y="206" width="8" height="12" rx="1" transform="rotate(90,538,212)"/>
+    <rect x="516" y="276" width="8" height="12" rx="1" transform="rotate(120,520,282)"/>
+    <rect x="466" y="326" width="8" height="12" rx="1" transform="rotate(150,470,332)"/>
+    <rect x="396" y="344" width="8" height="12" rx="1"/>
+    <rect x="326" y="326" width="8" height="12" rx="1" transform="rotate(210,330,332)"/>
+    <rect x="276" y="276" width="8" height="12" rx="1" transform="rotate(240,280,282)"/>
+    <rect x="258" y="206" width="8" height="12" rx="1" transform="rotate(270,262,212)"/>
+    <rect x="276" y="134" width="8" height="12" rx="1" transform="rotate(300,280,140)"/>
+    <rect x="326" y="84"  width="8" height="12" rx="1" transform="rotate(330,330,90)"/>
+  </g>
+
+  <!-- Middle ring -->
+  <circle cx="400" cy="210" r="100" fill="none" stroke="#B080FF" stroke-width="1.5" opacity="0.5"/>
+  <!-- Inner ring -->
+  <circle cx="400" cy="210" r="60"  fill="none" stroke="#D4A0FF" stroke-width="1"   opacity="0.6"/>
+  <!-- Innermost ring -->
+  <circle cx="400" cy="210" r="25"  fill="none" stroke="#FFD700" stroke-width="2"   opacity="0.7"/>
+
+  <!-- Star/cross lines across portal -->
+  <g stroke="#B080FF" stroke-width="0.8" opacity="0.4">
+    <line x1="400" y1="70"  x2="400" y2="350"/>
+    <line x1="260" y1="210" x2="540" y2="210"/>
+    <line x1="301" y1="111" x2="499" y2="309"/>
+    <line x1="499" y1="111" x2="301" y2="309"/>
+    <line x1="320" y1="80"  x2="480" y2="340"/>
+    <line x1="480" y1="80"  x2="320" y2="340"/>
+  </g>
+
+  <!-- Portal interior glow -->
+  <circle cx="400" cy="210" r="55"  fill="url(#portalCore)" filter="url(#glow3)"/>
+  <circle cx="400" cy="210" r="20"  fill="url(#goldGlow)"/>
+  <circle cx="400" cy="210" r="8"   fill="#FFD700" opacity="0.9"/>
+  <circle cx="400" cy="210" r="4"   fill="white"   opacity="1"/>
+
+  <!-- Floating crystals -->
+  <g filter="url(#glow3)">
+    <!-- Crystal 1 - top left -->
+    <polygon points="180,130 192,100 204,130 192,140" fill="#7B2FFF" opacity="0.8"/>
+    <polygon points="180,130 192,140 192,130"          fill="#B080FF" opacity="0.5"/>
+    <!-- Crystal 2 - top right -->
+    <polygon points="596,120 608,90  620,120 608,132" fill="#9B59B6" opacity="0.8"/>
+    <polygon points="596,120 608,132 608,120"          fill="#D4A0FF" opacity="0.5"/>
+    <!-- Crystal 3 - left -->
+    <polygon points="165,240 172,215 182,240 172,250" fill="#7B2FFF" opacity="0.7"/>
+    <!-- Crystal 4 - right -->
+    <polygon points="618,250 628,220 638,250 628,260" fill="#9B59B6" opacity="0.7"/>
+    <!-- Crystal 5 - small ones -->
+    <polygon points="230,310 237,295 244,310 237,316" fill="#B080FF" opacity="0.6"/>
+    <polygon points="556,290 562,275 570,290 562,297" fill="#B080FF" opacity="0.6"/>
+  </g>
+
+  <!-- Magic particle sparks -->
+  <g fill="#FFD700" opacity="0.7" filter="url(#glow3)">
+    <circle cx="280" cy="160" r="2.5"/>
+    <circle cx="520" cy="150" r="2"/>
+    <circle cx="250" cy="270" r="2"/>
+    <circle cx="545" cy="280" r="2.5"/>
+    <circle cx="310" cy="340" r="1.5"/>
+    <circle cx="490" cy="335" r="1.5"/>
+    <circle cx="400" cy="100" r="2"/>
+  </g>
+  <g fill="#B080FF" opacity="0.6">
+    <circle cx="320" cy="130" r="1.5"/>
+    <circle cx="480" cy="125" r="1.5"/>
+    <circle cx="220" cy="220" r="1"/>
+    <circle cx="580" cy="215" r="1"/>
+    <circle cx="360" cy="360" r="1.5"/>
+    <circle cx="440" cy="355" r="1.5"/>
+  </g>
+
+  <!-- Spell hands reaching in from sides -->
+  <g fill="#0D0520" opacity="0.7">
+    <!-- Left hand reaching -->
+    <ellipse cx="90"  cy="300" rx="40" ry="15" transform="rotate(-30,90,300)"/>
+    <ellipse cx="115" cy="280" rx="8"  ry="25" transform="rotate(-20,115,280)"/>
+    <ellipse cx="130" cy="270" rx="7"  ry="28" transform="rotate(-10,130,270)"/>
+    <ellipse cx="145" cy="275" rx="6"  ry="26" transform="rotate(5,145,275)"/>
+    <ellipse cx="158" cy="285" rx="6"  ry="22" transform="rotate(15,158,285)"/>
+    <!-- Right hand -->
+    <ellipse cx="710" cy="300" rx="40" ry="15" transform="rotate(30,710,300)"/>
+    <ellipse cx="685" cy="280" rx="8"  ry="25" transform="rotate(20,685,280)"/>
+    <ellipse cx="670" cy="270" rx="7"  ry="28" transform="rotate(10,670,270)"/>
+    <ellipse cx="655" cy="275" rx="6"  ry="26" transform="rotate(-5,655,275)"/>
+    <ellipse cx="642" cy="285" rx="6"  ry="22" transform="rotate(-15,642,285)"/>
+  </g>
+  <!-- Glow from hands -->
+  <circle cx="150" cy="275" r="25" fill="#7B2FFF" opacity="0.1" filter="url(#glow6)"/>
+  <circle cx="650" cy="275" r="25" fill="#7B2FFF" opacity="0.1" filter="url(#glow6)"/>
+
+  <!-- Vignette -->
+  <rect width="800" height="450" fill="url(#vignette)"/>
+
+  <!-- Genre label -->
+  <text x="24" y="424" font-family="monospace" font-size="11" fill="#B080FF" opacity="0.8" letter-spacing="3">VR ADVENTURE  //  FANTASY  //  MAGIC</text>
+</svg>

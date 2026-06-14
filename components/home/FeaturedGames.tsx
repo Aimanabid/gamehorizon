@@ -71,8 +71,16 @@ export default function FeaturedGames() {
                   clip-corner-lg scan-sweep
                   ${i === 0 ? "md:col-span-2 h-80" : "h-64"}`}
               >
-                {/* Card background */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${cardAccents[i]}`} />
+                {/* Game art */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={game.image}
+                  alt={game.title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-80 transition-opacity duration-500"
+                />
+
+                {/* Dark gradient overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/55 to-brand-dark/20" />
 
                 {/* Hex grid overlay */}
                 <div

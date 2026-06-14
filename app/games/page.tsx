@@ -41,8 +41,11 @@ function GameModal({ game, onClose }: { game: Game; onClose: () => void }) {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header image */}
-          <div className="h-52 bg-gradient-to-br from-brand-primary/20 to-brand-deep relative overflow-hidden">
-            <div className="absolute inset-0 grid-pattern opacity-30" />
+          <div className="h-52 relative overflow-hidden bg-brand-deep">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={game.image} alt={game.title} className="absolute inset-0 w-full h-full object-cover opacity-75" />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/40 to-transparent" />
+            <div className="absolute inset-0 grid-pattern opacity-10" />
             <button
               onClick={onClose}
               className="absolute top-4 right-4 w-9 h-9 rounded-lg bg-black/50 border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition"
@@ -183,15 +186,13 @@ export default function GamesPage() {
                     onClick={() => setSelectedGame(game)}
                     className="group bg-brand-card border border-brand-border/40 rounded-xl overflow-hidden cursor-pointer hover:border-brand-primary/50 hover:-translate-y-1 hover:shadow-glow-sm transition-all duration-300"
                   >
-                    <div className={`h-44 relative overflow-hidden ${
-                      i % 4 === 0 ? "bg-gradient-to-br from-blue-800/50 to-brand-deep" :
-                      i % 4 === 1 ? "bg-gradient-to-br from-purple-800/50 to-brand-deep" :
-                      i % 4 === 2 ? "bg-gradient-to-br from-teal-800/50 to-brand-deep" :
-                      "bg-gradient-to-br from-orange-800/50 to-brand-deep"
-                    }`}>
-                      <div className="absolute inset-0 grid-pattern opacity-20" />
+                    <div className="h-44 relative overflow-hidden bg-brand-deep">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={game.image} alt={game.title} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/70 to-transparent" />
+                      <div className="absolute inset-0 grid-pattern opacity-10" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="w-12 h-12 rounded-full bg-brand-primary/80 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-brand-primary/80 flex items-center justify-center backdrop-blur-sm">
                           <Play className="w-5 h-5 text-white ml-0.5" />
                         </div>
                       </div>
@@ -241,9 +242,11 @@ export default function GamesPage() {
                         {statusConfig[game.status].label}
                       </span>
                     </div>
-                    <div className="h-44 bg-gradient-to-br from-slate-800/50 to-brand-deep relative overflow-hidden">
-                      <div className="absolute inset-0 grid-pattern opacity-20" />
-                      <div className="absolute inset-0 bg-black/20" />
+                    <div className="h-44 relative overflow-hidden bg-brand-deep">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={game.image} alt={game.title} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-75 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-black/30" />
+                      <div className="absolute inset-0 grid-pattern opacity-10" />
                     </div>
                     <div className="p-5">
                       <h3 className="font-bold text-white mb-1 group-hover:text-brand-primary transition-colors">{game.title}</h3>

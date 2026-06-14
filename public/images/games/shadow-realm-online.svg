@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%"   stop-color="#0D0518"/>
+      <stop offset="100%" stop-color="#020108"/>
+    </radialGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="45%" r="30%">
+      <stop offset="0%"   stop-color="#9B59B6" stop-opacity="0.5"/>
+      <stop offset="60%"  stop-color="#6A0DAD" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="greenGlow" cx="50%" cy="45%" r="20%">
+      <stop offset="0%"   stop-color="#00FF88" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="runeRing" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#9B59B6" stop-opacity="0.9"/>
+      <stop offset="50%"  stop-color="#00FF88" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#9B59B6" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="swordGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#E8E8FF"/>
+      <stop offset="40%"  stop-color="#9B59B6"/>
+      <stop offset="100%" stop-color="#4A0080"/>
+    </linearGradient>
+    <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#000" stop-opacity="0.6"/>
+      <stop offset="35%"  stop-color="transparent"/>
+      <stop offset="65%"  stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="glow4"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="glow10"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="glow20"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#coreGlow)"/>
+  <rect width="800" height="450" fill="url(#greenGlow)"/>
+
+  <!-- Tree silhouettes left -->
+  <g fill="#04010A">
+    <polygon points="40,450 80,200 120,450"/>
+    <polygon points="60,450 95,230 130,450"/>
+    <polygon points="0,450 30,280 70,450"/>
+    <polygon points="100,450 135,250 175,450"/>
+    <polygon points="25,450 55,310 90,450"/>
+  </g>
+  <!-- Tree silhouettes right -->
+  <g fill="#04010A">
+    <polygon points="680,450 715,200 750,450"/>
+    <polygon points="700,450 730,240 760,450"/>
+    <polygon points="730,450 760,270 790,450"/>
+    <polygon points="660,450 690,260 720,450"/>
+    <polygon points="750,450 775,300 800,450"/>
+  </g>
+
+  <!-- Runic circle - outer -->
+  <circle cx="400" cy="225" r="155" fill="none" stroke="url(#runeRing)" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="400" cy="225" r="155" fill="none" stroke="#9B59B6" stroke-width="1.5" opacity="0.3" filter="url(#glow4)"/>
+  <!-- Middle ring -->
+  <circle cx="400" cy="225" r="120" fill="none" stroke="#9B59B6" stroke-width="1" opacity="0.5"/>
+  <!-- Inner ring -->
+  <circle cx="400" cy="225" r="80"  fill="none" stroke="#00FF88" stroke-width="1" opacity="0.4"/>
+  <!-- Innermost -->
+  <circle cx="400" cy="225" r="45"  fill="none" stroke="#9B59B6" stroke-width="0.8" opacity="0.5"/>
+
+  <!-- Rune cross lines -->
+  <g stroke="#9B59B6" stroke-width="1" opacity="0.4">
+    <line x1="400" y1="70"  x2="400" y2="380"/>
+    <line x1="245" y1="225" x2="555" y2="225"/>
+    <line x1="290" y1="116" x2="510" y2="334"/>
+    <line x1="510" y1="116" x2="290" y2="334"/>
+  </g>
+
+  <!-- Rune marks on outer circle -->
+  <g fill="none" stroke="#00FF88" stroke-width="1.5" opacity="0.7">
+    <!-- N -->
+    <line x1="397" y1="69" x2="397" y2="79"/>
+    <line x1="403" y1="69" x2="403" y2="79"/>
+    <!-- E -->
+    <line x1="551" y1="222" x2="561" y2="222"/>
+    <line x1="551" y1="222" x2="561" y2="228"/>
+    <!-- S -->
+    <line x1="397" y1="370" x2="403" y2="370"/>
+    <line x1="397" y1="377" x2="403" y2="377"/>
+    <!-- W -->
+    <line x1="239" y1="222" x2="249" y2="222"/>
+    <line x1="239" y1="228" x2="249" y2="228"/>
+  </g>
+
+  <!-- Glowing center -->
+  <circle cx="400" cy="225" r="30" fill="#9B59B6" opacity="0.08" filter="url(#glow20)"/>
+  <circle cx="400" cy="225" r="5"  fill="#00FF88" opacity="0.7"  filter="url(#glow4)"/>
+  <circle cx="400" cy="225" r="2"  fill="white"   opacity="0.9"/>
+
+  <!-- Sword silhouette (centered, pointing up) -->
+  <g transform="translate(400,225) rotate(0)">
+    <!-- blade -->
+    <rect x="-4" y="-130" width="8" height="110" fill="url(#swordGrad)" opacity="0.85"/>
+    <!-- crossguard -->
+    <rect x="-28" y="-22" width="56" height="8" fill="#6A0DAD" opacity="0.9" rx="2"/>
+    <!-- handle -->
+    <rect x="-4" y="-14" width="8" height="35" fill="#3A0060" opacity="0.9"/>
+    <!-- pommel -->
+    <circle cx="0" cy="25" r="8" fill="#6A0DAD" opacity="0.9"/>
+    <!-- blade glow -->
+    <rect x="-3" y="-130" width="6" height="110" fill="#9B59B6" opacity="0.4" filter="url(#glow4)"/>
+  </g>
+
+  <!-- Floating orbs -->
+  <g filter="url(#glow4)">
+    <circle cx="260" cy="180" r="6" fill="#9B59B6" opacity="0.8"/>
+    <circle cx="540" cy="170" r="5" fill="#00FF88" opacity="0.7"/>
+    <circle cx="300" cy="280" r="4" fill="#9B59B6" opacity="0.6"/>
+    <circle cx="500" cy="290" r="5" fill="#00FF88" opacity="0.6"/>
+    <circle cx="200" cy="230" r="3" fill="#9B59B6" opacity="0.5"/>
+    <circle cx="600" cy="220" r="3" fill="#00FF88" opacity="0.5"/>
+  </g>
+
+  <!-- Particle sparkles -->
+  <g fill="#9B59B6" opacity="0.6">
+    <circle cx="320" cy="140" r="1.5"/>
+    <circle cx="480" cy="130" r="1.5"/>
+    <circle cx="350" cy="320" r="1"/>
+    <circle cx="450" cy="310" r="1"/>
+    <circle cx="180" cy="280" r="1"/>
+    <circle cx="620" cy="270" r="1"/>
+  </g>
+
+  <!-- Vignette -->
+  <rect width="800" height="450" fill="url(#vignette)"/>
+
+  <!-- Genre label -->
+  <text x="24" y="424" font-family="monospace" font-size="11" fill="#9B59B6" opacity="0.8" letter-spacing="3">MMORPG  //  DARK FANTASY</text>
+</svg>
