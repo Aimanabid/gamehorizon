@@ -46,21 +46,6 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
-        {/* Live badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-glass border border-brand-primary/30 text-sm"
-        >
-          <span className="relative flex w-2 h-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary" />
-          </span>
-          <span className="text-brand-primary font-medium">New Release:</span>
-          <span className="text-slate-300">Phantom Protocol — Q2 2025</span>
-        </motion.div>
-
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 32 }}

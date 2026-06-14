@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import TopLoader from "@/components/ui/TopLoader";
 import { siteStructuredData } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -47,10 +48,6 @@ export const metadata: Metadata = {
     site: "@GameHorizonGG",
     creator: "@GameHorizonGG",
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
 };
 
 export default function RootLayout({
@@ -75,6 +72,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-brand-dark text-white antialiased">
+        <TopLoader />
         <Navbar />
         <main>{children}</main>
         <Footer />
