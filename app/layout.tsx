@@ -23,13 +23,13 @@ export const metadata: Metadata = {
     "custom game development",
     "GameHorizon",
   ],
-  authors: [{ name: "GameHorizon", url: "https://www.gamehorizon.gg" }],
+  authors: [{ name: "GameHorizon", url: "https://gamehorizon-studio.vercel.app" }],
   creator: "GameHorizon",
-  metadataBase: new URL("https://www.gamehorizon.gg"),
+  metadataBase: new URL("https://gamehorizon-studio.vercel.app"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.gamehorizon.gg",
+    url: "https://gamehorizon-studio.vercel.app",
     siteName: "GameHorizon",
     title: "GameHorizon — Where Epic Worlds Are Born",
     description:
@@ -45,8 +45,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@GameHorizonGG",
-    creator: "@GameHorizonGG",
   },
 };
 

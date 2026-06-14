@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const BASE_URL = "https://www.gamehorizon.gg";
+const BASE_URL = "https://gamehorizon-studio.vercel.app";
 const SITE_NAME = "GameHorizon";
 const DEFAULT_IMAGE = `${BASE_URL}/og-default.jpg`;
 
@@ -71,19 +71,14 @@ export const siteStructuredData = {
     "@type": "Organization",
     name: "GameHorizon",
     url: BASE_URL,
-    logo: `${BASE_URL}/logo.png`,
+    logo: `${BASE_URL}/icon.svg`,
     description:
       "GameHorizon is a premium game development studio crafting immersive worlds across mobile, PC, and console platforms.",
-    sameAs: [
-      "https://twitter.com/GameHorizonGG",
-      "https://linkedin.com/company/gamehorizon",
-      "https://youtube.com/@GameHorizonGG",
-      "https://discord.gg/gamehorizon",
-    ],
+    sameAs: [],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
-      email: "contact@gamehorizon.gg",
+      email: "aimanab253@gmail.com",
     },
   },
   website: {

@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/admin/"],
     },
-    sitemap: "https://www.gamehorizon.gg/sitemap.xml",
-    host: "https://www.gamehorizon.gg",
+    sitemap: "https://gamehorizon-studio.vercel.app/sitemap.xml",
+    host: "https://gamehorizon-studio.vercel.app",
   };
 }

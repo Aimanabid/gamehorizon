@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { games } from "@/lib/data/games";
 import { blogPosts } from "@/lib/data/blog";
 
-const BASE_URL = "https://www.gamehorizon.gg";
+const BASE_URL = "https://gamehorizon-studio.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
