@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Clock, Briefcase, ChevronDown, ChevronUp, ArrowRight, Users, Gamepad2 } from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import CTASection from "@/components/home/CTASection";
@@ -16,6 +16,8 @@ const levelColors: Record<string, string> = {
   Lead: "bg-amber-500/15 text-amber-400 border-amber-500/30",
   Director: "bg-red-500/15 text-red-400 border-red-500/30",
 };
+
+const APPLY_EMAIL = "info@playgamehorizon.com";
 
 function JobCard({ job }: { job: typeof jobs[0] }) {
   const [expanded, setExpanded] = useState(false);
@@ -51,12 +53,14 @@ function JobCard({ job }: { job: typeof jobs[0] }) {
         </div>
       </div>
 
+      <AnimatePresence initial={false}>
       {expanded && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="border-t border-brand-border/30 p-5"
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="border-t border-brand-border/30 p-5 overflow-hidden"
         >
           <p className="text-slate-300 text-sm leading-relaxed mb-5">{job.description}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
@@ -84,13 +88,14 @@ function JobCard({ job }: { job: typeof jobs[0] }) {
             </div>
           </div>
           <a
-            href={`mailto:careers@gamehorizon.gg?subject=Application: ${job.title}`}
+            href={`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(`Application: ${job.title}`)}&body=${encodeURIComponent(`Hi PlayGame Horizon team,\n\nI'd like to apply for the ${job.title} role.\n\nName: \nPhone: \nCurrent location: \nPortfolio / CV link: \n\n(Please attach your CV / portfolio as well.)\n\nThanks!`)}`}
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-gradient text-white text-sm font-bold rounded-lg hover:opacity-90 transition shadow-glow-sm"
           >
             Apply Now <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
       )}
+      </AnimatePresence>
     </motion.div>
   );
 }
@@ -107,21 +112,25 @@ export default function CareersPage() {
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <h1 className="font-display font-black text-5xl sm:text-6xl text-white mb-6">
-              Join the <span className="text-gradient">Horizon</span>
+            <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-brand-primary/15 border border-brand-primary/30 text-brand-secondary text-sm font-semibold">
+              Careers
+            </span>
+            <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
+              Build Games <span className="text-gradient">With Us</span>
             </h1>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-8">
-              We&apos;re building the future of gaming. Come build it with us. Remote-friendly, passion-driven, and always pushing the limits.
+              We&apos;re a small studio in Lahore making thoughtful games for mobile, PC, and web.
+              If you care about craft and want real ownership from day one, we&apos;d love to hear from you.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-brand-border/40 text-sm text-slate-300">
-                <Users className="w-4 h-4 text-brand-primary" /> 120+ Team Members
+                <Users className="w-4 h-4 text-brand-primary" /> Small, Growing Team
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-brand-border/40 text-sm text-slate-300">
-                <MapPin className="w-4 h-4 text-brand-primary" /> Remote-First
+                <MapPin className="w-4 h-4 text-brand-primary" /> Lahore, Pakistan
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-brand-border/40 text-sm text-slate-300">
-                <Gamepad2 className="w-4 h-4 text-brand-primary" /> 6 Open Roles
+                <Gamepad2 className="w-4 h-4 text-brand-primary" /> {jobs.length} Open Roles
               </div>
             </div>
           </motion.div>
@@ -132,7 +141,7 @@ export default function CareersPage() {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-brand-primary/3 border-y border-brand-border/30" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle label="Life at GameHorizon" title="Benefits That " highlight="Matter" description="We take care of our team so they can focus on building incredible games." />
+          <SectionTitle label="Life at PlayGame Horizon" title="Why Work " highlight="With Us" description="A small, honest studio that invests in its team and their long-term growth." />
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {benefits.map((b, i) => (
               <motion.div
@@ -179,10 +188,10 @@ export default function CareersPage() {
             ))}
           </div>
           <div className="mt-10 bg-glass glow-border rounded-xl p-6 text-center">
-            <p className="text-slate-300 mb-3">Don&apos;t see a role that fits? We&apos;re always interested in exceptional talent.</p>
+            <p className="text-slate-300 mb-3">Don&apos;t see a role that fits? We&apos;re always open to hearing from exceptional people.</p>
             <a
-              href="mailto:careers@gamehorizon.gg?subject=Open Application"
-              className="inline-flex items-center gap-2 text-brand-primary font-semibold hover:gap-3 transition-all"
+              href={`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent("Open Application — PlayGame Horizon")}&body=${encodeURIComponent("Hi PlayGame Horizon team,\n\nI'd like to introduce myself and share my portfolio for future opportunities.\n\nName: \nRole / specialty: \nLinks: \n\nThanks!")}`}
+              className="inline-flex items-center gap-2 text-brand-secondary font-semibold hover:gap-3 transition-all"
             >
               Send an Open Application <ArrowRight className="w-4 h-4" />
             </a>

@@ -8,21 +8,21 @@ import Testimonials from "@/components/home/Testimonials";
 import CTASection from "@/components/home/CTASection";
 
 export const metadata: Metadata = {
-  title: "GameHorizon — Where Epic Worlds Are Born",
+  title: "PlayGame Horizon — Thoughtful Games, Built in Lahore",
   description:
-    "GameHorizon is a premium game development studio creating immersive worlds across mobile, PC, and console. 1M+ players. 50+ games. Award-winning studio.",
+    "PlayGame Horizon (SMC-Private) Limited is a Lahore-based game development studio. We build polished, player-first games for mobile, PC, and the web.",
   keywords: [
-    "game development company",
-    "gaming studio",
-    "indie game studio",
-    "mobile game development",
-    "best game development company",
-    "professional gaming studio",
+    "PlayGame Horizon",
+    "game development Pakistan",
+    "Lahore game studio",
+    "mobile game development Pakistan",
+    "best game studio Lahore",
+    "indie game studio Pakistan",
   ],
   openGraph: {
-    title: "GameHorizon — Where Epic Worlds Are Born",
+    title: "PlayGame Horizon — Thoughtful Games, Built in Lahore",
     description:
-      "Premium game development studio. 1M+ players, 50+ titles shipped. We create worlds worth living in.",
+      "A Pakistan-based game development studio building thoughtful, player-first games for mobile, PC, and the web.",
   },
 };
 

@@ -1,51 +1,48 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, MapPin, Twitter, Linkedin, Youtube, Github, ChevronDown, ChevronUp, Send, CheckCircle2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Mail, MapPin, Phone, Facebook, Instagram, Twitter, Linkedin, Youtube,
+  ChevronDown, ChevronUp, Send, CheckCircle2, Clock, X,
+} from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
 
 const contactReasons = [
   "Game Development Partnership",
   "Mobile Game Development",
-  "VR/AR Project",
-  "Multiplayer Backend",
+  "PC / Web Game Development",
+  "AR / VR Project",
   "Art & Design Services",
-  "Press Inquiry",
+  "Press / Media Inquiry",
   "Career Inquiry",
   "General Question",
 ];
 
-const offices = [
-  { city: "Austin, TX", country: "USA", address: "123 Innovation Blvd, Austin, TX 78701", role: "HQ & Engineering" },
-  { city: "London", country: "UK", address: "45 Shoreditch High Street, London E1 6JJ", role: "Art & Design Studio" },
-  { city: "Tokyo", country: "Japan", address: "2-1-1 Shinjuku, Tokyo 160-0022", role: "XR Division" },
-];
-
 const faqs = [
   {
+    q: "What services does PlayGame Horizon offer?",
+    a: "We offer full-cycle game development across mobile, PC, and web — including concept, design, art, programming, QA, and post-launch support. We also take on standalone art, prototyping, and consulting engagements.",
+  },
+  {
+    q: "Are you a registered company?",
+    a: "Yes. PlayGame Horizon (SMC-Private) Limited is a company registered with the Securities and Exchange Commission of Pakistan (SECP). Our registered office is in Lahore, Pakistan.",
+  },
+  {
     q: "How long does a typical game development project take?",
-    a: "Timelines vary by scope. A mobile casual game can take 4–8 months. A mid-size PC title typically takes 12–24 months. We always start with a discovery phase to give you an accurate estimate.",
+    a: "Timelines depend on scope. A small hyper-casual mobile title can take 2–4 months. A mid-size mobile or PC title usually takes 6–12 months. We always begin with a discovery phase to give you an honest estimate before any contracts are signed.",
   },
   {
-    q: "Do you work with existing intellectual properties?",
-    a: "Absolutely. We've worked extensively on licensed IPs, co-developed sequels, and provided development support for existing franchises. We sign robust NDAs and take IP protection seriously.",
+    q: "Do you work with clients outside Pakistan?",
+    a: "Absolutely. We work with clients worldwide and are comfortable collaborating across time zones. Communication is primarily in English, with regular video calls and clear async updates.",
   },
   {
-    q: "What's your minimum project budget?",
-    a: "Mobile projects start around $80K. PC/console projects typically start at $250K. VR projects begin around $150K. We can discuss options for all budgets during the discovery call.",
+    q: "What's your typical project budget?",
+    a: "Small mobile prototypes start from PKR 5 lakh. Mid-size production projects typically range from PKR 15 lakh to PKR 50 lakh+. We'll scope and quote clearly during the discovery call — no hidden costs.",
   },
   {
-    q: "Can you take over a project that's already in development?",
-    a: "Yes — rescue and takeover projects are something we've done successfully. We'll conduct a thorough code and art audit, then provide a realistic roadmap to completion.",
-  },
-  {
-    q: "Do you offer publishing services?",
-    a: "We offer co-publishing for select projects that align with our portfolio. This includes platform relations, marketing support, and storefront optimization.",
-  },
-  {
-    q: "What engines do you specialize in?",
-    a: "We primarily use Unreal Engine 5 and Unity. We also have proprietary mobile tooling. For bespoke requirements, we can evaluate custom engine work.",
+    q: "Can you continue a project that's already in development?",
+    a: "Yes. We're happy to take over or help finish an existing project. We'll do a code and asset audit first, then share a realistic roadmap to completion.",
   },
 ];
 
@@ -56,26 +53,116 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       <button
         className="w-full flex items-center justify-between gap-4 p-5 text-left"
         onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
       >
         <span className="font-semibold text-white text-sm">{q}</span>
         {open ? <ChevronUp className="w-5 h-5 text-brand-primary flex-shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />}
       </button>
-      {open && (
-        <div className="px-5 pb-5 text-slate-400 text-sm leading-relaxed border-t border-brand-border/30 pt-4">
-          {a}
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-5 pb-5 text-slate-400 text-sm leading-relaxed border-t border-brand-border/30 pt-4">
+              {a}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
+  );
+}
+
+function SuccessModal({ onClose }: { onClose: () => void }) {
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.85, opacity: 0, y: 24 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.9, opacity: 0, y: 12 }}
+          transition={{ type: "spring", damping: 20 }}
+          className="relative bg-brand-card border border-brand-primary/40 rounded-2xl max-w-md w-full p-8 text-center shadow-glow-lg"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition"
+          >
+            <X className="w-4 h-4" />
+          </button>
+
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.1, type: "spring", damping: 12 }}
+            className="relative mx-auto mb-5"
+          >
+            <div className="absolute inset-0 bg-brand-primary/30 rounded-full blur-2xl animate-pulse" />
+            <div className="relative w-20 h-20 mx-auto rounded-full bg-blue-gradient flex items-center justify-center shadow-glow">
+              <CheckCircle2 className="w-10 h-10 text-white" />
+            </div>
+          </motion.div>
+
+          <h3 className="font-display font-bold text-2xl text-white mb-3">Message prepared!</h3>
+          <p className="text-slate-300 leading-relaxed mb-6">
+            Your email client should have opened with your message pre-filled.
+            If it didn&apos;t, you can email us directly at{" "}
+            <a href="mailto:info@playgamehorizon.com" className="text-brand-secondary hover:underline">
+              info@playgamehorizon.com
+            </a>.
+          </p>
+          <p className="text-xs text-slate-500 mb-6">
+            We typically respond within 1–2 business days.
+          </p>
+          <button
+            onClick={onClose}
+            className="w-full px-6 py-3 bg-blue-gradient text-white text-sm font-semibold rounded-xl hover:opacity-90 transition shadow-glow-sm"
+          >
+            Great, thanks!
+          </button>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", company: "", reason: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", company: "", phone: "", reason: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`[${form.reason || "Inquiry"}] from ${form.name} — PlayGame Horizon`);
+    const bodyLines = [
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      form.company ? `Company: ${form.company}` : "",
+      form.phone ? `Phone: ${form.phone}` : "",
+      form.reason ? `Reason: ${form.reason}` : "",
+      "",
+      "Message:",
+      form.message,
+    ].filter(Boolean);
+    const body = encodeURIComponent(bodyLines.join("\n"));
+    window.location.href = `mailto:info@playgamehorizon.com?subject=${subject}&body=${body}`;
     setSent(true);
+  };
+
+  const resetForm = () => {
+    setSent(false);
+    setForm({ name: "", email: "", company: "", phone: "", reason: "", message: "" });
   };
 
   return (
@@ -85,7 +172,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <h1 className="font-display font-black text-5xl sm:text-6xl text-white mb-4">
+            <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-4">
               Let&apos;s <span className="text-gradient">Connect</span>
             </h1>
             <p className="text-slate-300 text-lg max-w-xl mx-auto">
@@ -103,54 +190,83 @@ export default function ContactPage() {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="font-display font-bold text-2xl text-white mb-6">Get in Touch</h2>
-                <div className="space-y-4">
-                  <a href="mailto:contact@gamehorizon.gg" className="flex items-center gap-3 p-4 rounded-xl bg-brand-card border border-brand-border/40 hover:border-brand-primary/40 transition group">
-                    <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center">
+                <div className="space-y-3">
+                  <a href="mailto:info@playgamehorizon.com" className="flex items-center gap-3 p-4 rounded-xl bg-brand-card border border-brand-border/40 hover:border-brand-primary/40 transition group">
+                    <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
                       <Mail className="w-5 h-5 text-brand-primary" />
                     </div>
-                    <div>
-                      <div className="text-xs text-slate-500 mb-0.5">Email</div>
-                      <div className="text-white text-sm font-medium group-hover:text-brand-primary transition-colors">contact@gamehorizon.gg</div>
+                    <div className="min-w-0">
+                      <div className="text-xs text-slate-500 mb-0.5">Primary Email</div>
+                      <div className="text-white text-sm font-medium group-hover:text-brand-secondary transition-colors truncate">info@playgamehorizon.com</div>
                     </div>
                   </a>
-                  <a href="mailto:press@gamehorizon.gg" className="flex items-center gap-3 p-4 rounded-xl bg-brand-card border border-brand-border/40 hover:border-brand-primary/40 transition group">
-                    <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center">
+                  <a href="mailto:playgamehorizon@gmail.com" className="flex items-center gap-3 p-4 rounded-xl bg-brand-card border border-brand-border/40 hover:border-brand-primary/40 transition group">
+                    <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
                       <Mail className="w-5 h-5 text-brand-primary" />
                     </div>
+                    <div className="min-w-0">
+                      <div className="text-xs text-slate-500 mb-0.5">Alternate Email</div>
+                      <div className="text-white text-sm font-medium group-hover:text-brand-secondary transition-colors truncate">playgamehorizon@gmail.com</div>
+                    </div>
+                  </a>
+                  <a href="tel:+923174682744" className="flex items-center gap-3 p-4 rounded-xl bg-brand-card border border-brand-border/40 hover:border-brand-primary/40 transition group">
+                    <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-brand-primary" />
+                    </div>
                     <div>
-                      <div className="text-xs text-slate-500 mb-0.5">Press</div>
-                      <div className="text-white text-sm font-medium group-hover:text-brand-primary transition-colors">press@gamehorizon.gg</div>
+                      <div className="text-xs text-slate-500 mb-0.5">Phone / WhatsApp</div>
+                      <div className="text-white text-sm font-medium group-hover:text-brand-secondary transition-colors">+92 317 4682744</div>
+                    </div>
+                  </a>
+                  <a
+                    href="https://maps.google.com/?q=Main+Bazar+Old+Anarkali+Lahore+Pakistan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-4 rounded-xl bg-brand-card border border-brand-border/40 hover:border-brand-primary/40 transition group"
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-5 h-5 text-brand-primary" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-slate-500 mb-0.5">Office</div>
+                      <div className="text-white text-sm font-medium group-hover:text-brand-secondary transition-colors">Main Bazar, Old Anarkali, Lahore, Pakistan</div>
                     </div>
                   </a>
                 </div>
               </div>
 
-              {/* Offices */}
-              <div>
-                <h3 className="font-bold text-white mb-4">Our Studios</h3>
-                <div className="space-y-3">
-                  {offices.map((o) => (
-                    <div key={o.city} className="p-4 rounded-xl bg-brand-card border border-brand-border/40">
-                      <div className="flex items-center gap-2 mb-1">
-                        <MapPin className="w-3.5 h-3.5 text-brand-primary" />
-                        <span className="font-semibold text-white text-sm">{o.city}, {o.country}</span>
-                        <span className="text-xs text-brand-primary font-medium">· {o.role}</span>
-                      </div>
-                      <p className="text-slate-400 text-xs ml-5">{o.address}</p>
-                    </div>
-                  ))}
+              {/* Hours */}
+              <div className="bg-glass glow-border rounded-xl p-5">
+                <div className="flex items-center gap-2 text-brand-secondary text-sm font-semibold mb-3">
+                  <Clock className="w-4 h-4" /> Business Hours
                 </div>
+                <div className="space-y-1.5 text-sm">
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">Monday – Friday</span>
+                    <span className="text-white font-medium">10:00 AM – 7:00 PM</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">Saturday</span>
+                    <span className="text-white font-medium">11:00 AM – 4:00 PM</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-slate-400">Sunday</span>
+                    <span className="text-slate-500 font-medium">Closed</span>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-500 mt-3">All times are PKT (UTC+5).</p>
               </div>
 
               {/* Socials */}
               <div>
                 <h3 className="font-bold text-white mb-4">Follow Us</h3>
-                <div className="flex gap-3">
+                <div className="flex gap-2">
                   {[
-                    { icon: Twitter, href: "https://twitter.com/GameHorizonGG", label: "Twitter" },
-                    { icon: Linkedin, href: "https://linkedin.com/company/gamehorizon", label: "LinkedIn" },
-                    { icon: Youtube, href: "https://youtube.com/@GameHorizonGG", label: "YouTube" },
-                    { icon: Github, href: "https://github.com/gamehorizon", label: "GitHub" },
+                    { icon: Facebook,  href: "https://facebook.com/playgamehorizon",  label: "Facebook" },
+                    { icon: Instagram, href: "https://instagram.com/playgamehorizon", label: "Instagram" },
+                    { icon: Twitter,   href: "https://twitter.com/playgamehorizon",   label: "Twitter" },
+                    { icon: Linkedin,  href: "https://linkedin.com/company/playgamehorizon", label: "LinkedIn" },
+                    { icon: Youtube,   href: "https://youtube.com/@playgamehorizon",  label: "YouTube" },
                   ].map(({ icon: Icon, href, label }) => (
                     <a
                       key={label}
@@ -158,7 +274,7 @@ export default function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={label}
-                      className="w-10 h-10 rounded-lg bg-white/5 border border-brand-border/40 flex items-center justify-center text-slate-400 hover:text-brand-primary hover:bg-brand-primary/10 hover:border-brand-primary/40 transition"
+                      className="w-10 h-10 rounded-lg bg-white/5 border border-brand-border/40 flex items-center justify-center text-slate-400 hover:text-brand-secondary hover:bg-brand-primary/10 hover:border-brand-primary/40 transition"
                     >
                       <Icon className="w-4 h-4" />
                     </a>
@@ -169,79 +285,101 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="lg:col-span-3">
-              {sent ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="h-full flex flex-col items-center justify-center bg-glass glow-border rounded-2xl p-12 text-center"
-                >
-                  <CheckCircle2 className="w-16 h-16 text-brand-primary mb-5" />
-                  <h3 className="font-display font-bold text-2xl text-white mb-3">Message Received!</h3>
-                  <p className="text-slate-300 leading-relaxed max-w-sm">
-                    Thanks for reaching out. Our team will get back to you within 1–2 business days.
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.form
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  onSubmit={handleSubmit}
-                  className="bg-glass glow-border rounded-2xl p-7 space-y-5"
-                >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    {[
-                      { label: "Full Name", name: "name", type: "text", placeholder: "John Doe", required: true },
-                      { label: "Email Address", name: "email", type: "email", placeholder: "john@company.com", required: true },
-                      { label: "Company / Studio", name: "company", type: "text", placeholder: "Your Studio Name", required: false },
-                    ].map((field) => (
-                      <div key={field.name} className={field.name === "company" ? "sm:col-span-2" : ""}>
-                        <label className="block text-sm font-medium text-slate-300 mb-1.5">{field.label}{field.required && <span className="text-brand-primary ml-0.5">*</span>}</label>
-                        <input
-                          type={field.type}
-                          placeholder={field.placeholder}
-                          required={field.required}
-                          value={form[field.name as keyof typeof form]}
-                          onChange={(e) => setForm((f) => ({ ...f, [field.name]: e.target.value }))}
-                          className="w-full bg-white/5 border border-brand-border/60 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:border-brand-primary/60 transition"
-                        />
-                      </div>
-                    ))}
-                  </div>
+              <motion.form
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                onSubmit={handleSubmit}
+                className="bg-glass glow-border rounded-2xl p-6 sm:p-8 space-y-5"
+              >
+                <div>
+                  <h2 className="font-display font-bold text-xl text-white mb-1">Send us a message</h2>
+                  <p className="text-sm text-slate-400">We&apos;ll get back to you within 1–2 business days.</p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1.5">What can we help with? <span className="text-brand-primary">*</span></label>
-                    <select
+                    <label className="block text-sm font-medium text-slate-300 mb-1.5">Full Name <span className="text-brand-primary">*</span></label>
+                    <input
+                      type="text"
                       required
-                      value={form.reason}
-                      onChange={(e) => setForm((f) => ({ ...f, reason: e.target.value }))}
-                      className="w-full bg-white/5 border border-brand-border/60 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-primary/60 transition"
-                    >
-                      <option value="" className="bg-brand-dark">Select a reason…</option>
-                      {contactReasons.map((r) => (
-                        <option key={r} value={r} className="bg-brand-dark">{r}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-300 mb-1.5">Message <span className="text-brand-primary">*</span></label>
-                    <textarea
-                      required
-                      rows={5}
-                      placeholder="Tell us about your project, timeline, and goals…"
-                      value={form.message}
-                      onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
-                      className="w-full bg-white/5 border border-brand-border/60 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:border-brand-primary/60 transition resize-none"
+                      placeholder="e.g. Ali Khan"
+                      value={form.name}
+                      onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                      className="w-full bg-white/5 border border-brand-border/60 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:border-brand-primary/60 transition"
                     />
                   </div>
-                  <button
-                    type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-3.5 bg-blue-gradient text-white font-bold rounded-xl hover:opacity-90 transition shadow-glow-sm hover:shadow-glow"
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-1.5">Email <span className="text-brand-primary">*</span></label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="you@example.com"
+                      value={form.email}
+                      onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                      className="w-full bg-white/5 border border-brand-border/60 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:border-brand-primary/60 transition"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-1.5">Phone (optional)</label>
+                    <input
+                      type="tel"
+                      placeholder="+92 300 1234567"
+                      value={form.phone}
+                      onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+                      className="w-full bg-white/5 border border-brand-border/60 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:border-brand-primary/60 transition"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-1.5">Company (optional)</label>
+                    <input
+                      type="text"
+                      placeholder="Your company or studio"
+                      value={form.company}
+                      onChange={(e) => setForm((f) => ({ ...f, company: e.target.value }))}
+                      className="w-full bg-white/5 border border-brand-border/60 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:border-brand-primary/60 transition"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-1.5">What can we help with? <span className="text-brand-primary">*</span></label>
+                  <select
+                    required
+                    value={form.reason}
+                    onChange={(e) => setForm((f) => ({ ...f, reason: e.target.value }))}
+                    className="w-full bg-white/5 border border-brand-border/60 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-primary/60 transition"
                   >
-                    <Send className="w-4 h-4" />
-                    Send Message
-                  </button>
-                </motion.form>
-              )}
+                    <option value="" className="bg-brand-dark">Select a reason…</option>
+                    {contactReasons.map((r) => (
+                      <option key={r} value={r} className="bg-brand-dark">{r}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-1.5">Message <span className="text-brand-primary">*</span></label>
+                  <textarea
+                    required
+                    rows={5}
+                    placeholder="Tell us about your project, timeline, and goals…"
+                    value={form.message}
+                    onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+                    className="w-full bg-white/5 border border-brand-border/60 rounded-xl px-4 py-3 text-white text-sm placeholder:text-slate-500 focus:outline-none focus:border-brand-primary/60 transition resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 bg-blue-gradient text-white font-bold rounded-xl hover:opacity-90 transition shadow-glow-sm hover:shadow-glow"
+                >
+                  <Send className="w-4 h-4" />
+                  Send Message
+                </button>
+                <p className="text-xs text-slate-500 text-center">
+                  By submitting, you&apos;ll open your email client with the message pre-filled. We never share your info.
+                </p>
+              </motion.form>
             </div>
           </div>
         </div>
@@ -259,6 +397,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {sent && <SuccessModal onClose={resetForm} />}
     </div>
   );
 }

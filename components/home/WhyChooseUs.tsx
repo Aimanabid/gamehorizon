@@ -7,57 +7,50 @@ import SectionTitle from "@/components/ui/SectionTitle";
 const features = [
   {
     icon: Cpu,
-    title: "Cutting-Edge Tech",
-    description: "UE5, proprietary rendering pipelines, and AI-assisted tools deliver visual fidelity that rivals blockbuster productions.",
+    title: "Modern Technology",
+    description: "We work with Unity, Unreal Engine, and modern web stacks to deliver smooth, performant experiences on every target device.",
     accent: "#2979FF",
-    tag: "ENGINE",
   },
   {
     icon: Users,
-    title: "Player-First",
-    description: "Every design decision is made with players in mind. No dark patterns, no predatory monetization — just games built to delight.",
+    title: "Player-First Design",
+    description: "Every design decision is made with players in mind — no dark patterns, no predatory monetization, just games people enjoy.",
     accent: "#00E5FF",
-    tag: "DESIGN",
   },
   {
     icon: Rocket,
-    title: "Rapid Prototyping",
-    description: "Concept to playable prototype in weeks, not months. We iterate fast and ship smart.",
+    title: "Fast Prototyping",
+    description: "From concept to playable prototype in weeks. We iterate quickly so you can validate ideas before committing to full production.",
     accent: "#7B2FFF",
-    tag: "PIPELINE",
   },
   {
     icon: Award,
-    title: "Award-Winning",
-    description: "Six industry awards. Our commitment to excellence shows in every frame, every mechanic, every moment.",
+    title: "Craft & Polish",
+    description: "We ship work we're proud of. Polish, UX, and performance aren't afterthoughts — they're built into every milestone.",
     accent: "#2979FF",
-    tag: "QUALITY",
   },
   {
     icon: Globe,
     title: "Cross-Platform",
-    description: "One cohesive experience across mobile, PC, and console — without compromise on any screen.",
+    description: "One cohesive experience across mobile, PC, and web, with careful attention to each platform's strengths and conventions.",
     accent: "#00E5FF",
-    tag: "PLATFORMS",
   },
   {
     icon: Headphones,
-    title: "Full-Cycle Dev",
-    description: "Concept art to post-launch live service, handled entirely in-house by our dedicated teams.",
+    title: "End-to-End Support",
+    description: "Concept, art, engineering, QA, and post-launch — handled in-house with transparent communication throughout.",
     accent: "#7B2FFF",
-    tag: "LIFECYCLE",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-brand-primary/4 border-y border-brand-border/30" />
       <div
         className="absolute inset-0 opacity-25"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(41,121,255,0.12) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(41,121,255,0.1) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
@@ -65,58 +58,42 @@ export default function WhyChooseUs() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          label="Why GameHorizon"
-          title="We Don't Just Make Games,"
-          highlight=" We Craft Worlds"
-          description="Partnering with GameHorizon means working with a team obsessed with craft, quality, and creating experiences that outlast trends."
+          label="Why PlayGame Horizon"
+          title="We Build Games with "
+          highlight="Care"
+          description="Partnering with us means working with a small, focused team obsessed with craft, communication, and shipping work that holds up over time."
         />
 
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative bg-brand-card border border-brand-border/50 clip-corner-lg p-6
+              className="group relative bg-brand-card border border-brand-border/50 rounded-2xl p-6
                 hover:border-brand-primary/50 hover:-translate-y-1.5 hover:shadow-glow-sm
-                transition-all duration-300 overflow-hidden corner-brackets"
+                transition-all duration-300 overflow-hidden"
             >
-              {/* Faint diagonal grid */}
-              <div className="absolute inset-0 opacity-10"
+              {/* Icon */}
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-shadow duration-300 group-hover:shadow-glow-sm"
                 style={{
-                  backgroundImage: "linear-gradient(135deg, rgba(41,121,255,0.15) 1px, transparent 1px)",
-                  backgroundSize: "20px 20px",
+                  background: `linear-gradient(135deg, ${feature.accent}25, ${feature.accent}10)`,
+                  border: `1px solid ${feature.accent}50`,
                 }}
-              />
-
-              {/* Hex icon */}
-              <div className="relative mb-5">
-                {/* Hexagon shape via clip-path */}
-                <div
-                  className="w-14 h-14 flex items-center justify-center transition-shadow duration-300 group-hover:shadow-glow-sm"
-                  style={{
-                    background: `linear-gradient(135deg, ${feature.accent}30, ${feature.accent}10)`,
-                    border: `1px solid ${feature.accent}50`,
-                    clipPath: "polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%)",
-                  }}
-                >
-                  <feature.icon className="w-6 h-6 transition-colors duration-300" style={{ color: feature.accent }} />
-                </div>
+              >
+                <feature.icon className="w-5 h-5" style={{ color: feature.accent }} />
               </div>
 
-              {/* Tag */}
-              <div className="hud-label mb-2 opacity-50">{feature.tag}</div>
-
-              <h3 className="font-display font-bold text-base text-white mb-2 group-hover:text-brand-secondary transition-colors duration-300">
+              <h3 className="font-display font-bold text-lg text-white mb-2 group-hover:text-brand-secondary transition-colors duration-300">
                 {feature.title}
               </h3>
               <p className="text-slate-400 text-sm leading-relaxed">
                 {feature.description}
               </p>
 
-              {/* Bottom accent line */}
               <div
                 className="absolute bottom-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ background: `linear-gradient(90deg, transparent, ${feature.accent}, transparent)` }}

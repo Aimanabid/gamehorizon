@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
-const BASE_URL = "https://gamehorizon-studio.vercel.app";
-const SITE_NAME = "GameHorizon";
+const BASE_URL = "https://playgamehorizon.com";
+const SITE_NAME = "PlayGame Horizon";
+const LEGAL_NAME = "PlayGame Horizon (SMC-Private) Limited";
 const DEFAULT_IMAGE = `${BASE_URL}/og-default.jpg`;
 
 interface SEOConfig {
@@ -26,18 +27,17 @@ export function buildMetadata({
     title: fullTitle,
     description,
     keywords: [
-      "game development company",
-      "gaming studio",
+      "PlayGame Horizon",
+      "game development Pakistan",
+      "Lahore game studio",
+      "mobile game development Pakistan",
       "indie game studio",
-      "mobile game development",
-      "pc game development",
-      "multiplayer game development",
-      "GameHorizon",
+      "SECP registered game company",
       ...keywords,
     ],
     authors: [{ name: SITE_NAME, url: BASE_URL }],
     creator: SITE_NAME,
-    publisher: SITE_NAME,
+    publisher: LEGAL_NAME,
     metadataBase: new URL(BASE_URL),
     alternates: { canonical: url },
     openGraph: {
@@ -51,8 +51,8 @@ export function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      site: "@GameHorizonGG",
-      creator: "@GameHorizonGG",
+      site: "@playgamehorizon",
+      creator: "@playgamehorizon",
       title: fullTitle,
       description,
       images: [image],
@@ -69,22 +69,40 @@ export const siteStructuredData = {
   organization: {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "GameHorizon",
+    name: LEGAL_NAME,
+    alternateName: SITE_NAME,
     url: BASE_URL,
-    logo: `${BASE_URL}/icon.svg`,
+    logo: `${BASE_URL}/logo.jpeg`,
     description:
-      "GameHorizon is a premium game development studio crafting immersive worlds across mobile, PC, and console platforms.",
-    sameAs: [],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer support",
-      email: "aimanab253@gmail.com",
+      "PlayGame Horizon (SMC-Private) Limited is a Lahore-based game development studio crafting polished, player-first games for mobile, PC, and web.",
+    foundingDate: "2024",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Main Bazar, Old Anarkali",
+      addressLocality: "Lahore",
+      addressCountry: "PK",
     },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "info@playgamehorizon.com",
+        telephone: "+92-317-4682744",
+        availableLanguage: ["English", "Urdu"],
+      },
+    ],
+    sameAs: [
+      "https://facebook.com/playgamehorizon",
+      "https://instagram.com/playgamehorizon",
+      "https://twitter.com/playgamehorizon",
+      "https://linkedin.com/company/playgamehorizon",
+      "https://youtube.com/@playgamehorizon",
+    ],
   },
   website: {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "GameHorizon",
+    name: SITE_NAME,
     url: BASE_URL,
     potentialAction: {
       "@type": "SearchAction",

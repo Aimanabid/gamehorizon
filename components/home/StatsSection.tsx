@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import StatCounter from "@/components/ui/StatCounter";
 
 const stats = [
-  { value: 1, suffix: "M+", label: "Active Players" },
-  { value: 50, suffix: "+", label: "Games Shipped" },
-  { value: 120, suffix: "+", label: "Team Members" },
-  { value: 6, suffix: "", label: "Industry Awards" },
+  { value: 100, suffix: "%", label: "Client Focus" },
+  { value: 10,  suffix: "+", label: "Active Projects" },
+  { value: 24,  suffix: "/7", label: "Dedicated Support" },
+  { value: 1,   suffix: "",  label: "Shared Vision" },
 ];
 
 export default function StatsSection() {

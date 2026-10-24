@@ -28,11 +28,15 @@ export default function BlogPage() {
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <h1 className="font-display font-black text-5xl sm:text-6xl text-white mb-4">
-              Dev <span className="text-gradient">Blog</span>
+            <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-brand-primary/15 border border-brand-primary/30 text-brand-secondary text-sm font-semibold">
+              Blog
+            </span>
+            <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-4">
+              Studio <span className="text-gradient">Journal</span>
             </h1>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-              Insights from our studio — game design deep-dives, industry analysis, and behind-the-scenes dev stories.
+              Behind-the-scenes posts from PlayGame Horizon — launch notes, design thoughts,
+              and lessons we&apos;re learning as we grow.
             </p>
           </motion.div>
         </div>

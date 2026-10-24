@@ -114,8 +114,9 @@ export default function GamesPage() {
     return matchSearch && matchCategory;
   });
 
-  const released = filtered.filter((g) => g.status === "released");
-  const upcoming = filtered.filter((g) => g.status !== "released");
+  const released    = filtered.filter((g) => g.status === "released");
+  const inDev       = filtered.filter((g) => g.status === "in-development");
+  const comingSoon  = filtered.filter((g) => g.status === "coming-soon");
 
   return (
     <div className="pt-16">
@@ -124,11 +125,15 @@ export default function GamesPage() {
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <h1 className="font-display font-black text-5xl sm:text-6xl text-white mb-4">
+            <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-brand-primary/15 border border-brand-primary/30 text-brand-secondary text-sm font-semibold">
+              Portfolio
+            </span>
+            <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-4">
               Our <span className="text-gradient">Games</span>
             </h1>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-              From action-packed shooters to sprawling MMORPGs — discover the worlds GameHorizon has built.
+              From cozy puzzles to local-flavor arcade hits — these are the titles we&apos;re
+              building, releasing, and dreaming up at PlayGame Horizon.
             </p>
           </motion.div>
         </div>
@@ -223,11 +228,52 @@ export default function GamesPage() {
             </>
           )}
 
-          {upcoming.length > 0 && (
+          {inDev.length > 0 && (
+            <>
+              <h2 className="font-display font-bold text-2xl text-white mb-8 mt-6">In Development</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                {inDev.map((game, i) => (
+                  <motion.div
+                    key={game.id}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.07, duration: 0.5 }}
+                    onClick={() => setSelectedGame(game)}
+                    className="group relative bg-brand-card border border-blue-500/20 rounded-xl overflow-hidden cursor-pointer hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div className="absolute top-3 right-3 z-10">
+                      <span className="px-2 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-xs font-semibold">
+                        {statusConfig[game.status].label}
+                      </span>
+                    </div>
+                    <div className="h-44 relative overflow-hidden bg-brand-deep">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={game.image} alt={game.title} className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-black/30" />
+                      <div className="absolute inset-0 grid-pattern opacity-10" />
+                    </div>
+                    <div className="p-5">
+                      <h3 className="font-bold text-white mb-1 group-hover:text-brand-secondary transition-colors">{game.title}</h3>
+                      <p className="text-brand-primary/70 text-xs font-medium mb-2">{game.genre}</p>
+                      <p className="text-slate-400 text-sm line-clamp-2 mb-3">{game.description}</p>
+                      {game.releaseDate && (
+                        <div className="flex items-center gap-1 text-xs text-slate-500">
+                          <Calendar className="w-3 h-3" /> Target: {game.releaseDate}
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </>
+          )}
+
+          {comingSoon.length > 0 && (
             <>
               <h2 id="coming-soon" className="font-display font-bold text-2xl text-white mb-8">Coming Soon</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {upcoming.map((game, i) => (
+                {comingSoon.map((game, i) => (
                   <motion.div
                     key={game.id}
                     initial={{ opacity: 0, y: 24 }}

@@ -7,12 +7,12 @@ import CTASection from "@/components/home/CTASection";
 import { team, timeline } from "@/lib/data/team";
 
 const values = [
-  { icon: Heart, title: "Passion First", description: "Every line of code, every polygon, every sound effect is crafted with genuine love for the medium." },
-  { icon: Target, title: "Player-Centric", description: "We make decisions based on what's best for players, not quarterly targets or short-term metrics." },
-  { icon: Award, title: "Uncompromising Quality", description: "We'd rather delay a launch than ship something we're not proud of. Quality is non-negotiable." },
-  { icon: Users, title: "Inclusive Teams", description: "Diverse perspectives make better games. We actively build teams that reflect the players we serve." },
-  { icon: Rocket, title: "Innovation Always", description: "We push technology and design forward with every project. Comfort zones are for other studios." },
-  { icon: Star, title: "Community-Driven", description: "Our players aren't just customers — they're co-creators. Their feedback shapes every update." },
+  { icon: Heart, title: "Passion First", description: "We make games because we love games. That love shows up in every build, every pixel, and every patch." },
+  { icon: Target, title: "Player-Centric", description: "Decisions are driven by what's best for players — not by short-term metrics or predatory monetization." },
+  { icon: Award, title: "Quality Over Rush", description: "We'd rather ship slightly later than ship something we're not proud of. Polish is non-negotiable." },
+  { icon: Users, title: "Honest Communication", description: "Clear timelines, honest updates, and no hidden surprises. Clients and teammates get the same transparency." },
+  { icon: Rocket, title: "Thoughtful Innovation", description: "We adopt new tech when it serves the player, not for novelty. Craft always comes first." },
+  { icon: Star, title: "Rooted in Pakistan", description: "Proudly Lahore-based. We celebrate local culture and build with the global player in mind." },
 ];
 
 export default function AboutPage() {
@@ -23,16 +23,16 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-hero-gradient" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-brand-primary/15 border border-brand-primary/30 text-brand-primary text-sm font-semibold">
-              Our Story
+            <span className="inline-block mb-4 px-4 py-1.5 rounded-full bg-brand-primary/15 border border-brand-primary/30 text-brand-secondary text-sm font-semibold">
+              About Us
             </span>
-            <h1 className="font-display font-black text-5xl sm:text-6xl lg:text-7xl text-white mb-6">
-              We Build <span className="text-gradient">Worlds</span>
-              <br />People Love
+            <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
+              A Studio Built on <span className="text-gradient">Craft</span>
             </h1>
             <p className="max-w-3xl mx-auto text-lg text-slate-300 leading-relaxed">
-              GameHorizon was born from a simple belief: that games are the most powerful storytelling medium ever created,
-              and that every player deserves experiences crafted with care, skill, and a dash of magic.
+              PlayGame Horizon (SMC-Private) Limited is a small, focused game development studio
+              based in Lahore, Pakistan. We build thoughtful, player-first games for mobile, PC,
+              and web — one well-made title at a time.
             </p>
           </motion.div>
         </div>
@@ -43,11 +43,25 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-              <SectionTitle label="Our Origins" title="From Garage Dreams to " highlight="Global Studio" centered={false} />
+              <SectionTitle label="Our Story" title="Built in " highlight="Lahore" centered={false} />
               <div className="mt-6 space-y-4 text-slate-300 leading-relaxed">
-                <p>In 2020, Jordan Kim and Alex Chen quit their jobs at a major AAA studio with a USB drive full of prototypes and a shared conviction: the best games in the world hadn&apos;t been made yet.</p>
-                <p>They rented a small office in Austin, Texas and began building. Within a year, Shadow Realm Online had attracted 100,000 players before it even officially launched. It was proof that quality and passion could compete with any budget.</p>
-                <p>Today, GameHorizon employs 120+ artists, engineers, and designers across three continents. But the ethos hasn&apos;t changed: build things that matter, treat players like partners, and never stop reaching for the horizon.</p>
+                <p>
+                  PlayGame Horizon began with a simple belief: Pakistan has incredible creative
+                  and technical talent, and the games industry is where that talent can meet the
+                  world on its own terms.
+                </p>
+                <p>
+                  We&apos;re a small team working out of Old Anarkali, Lahore — one of the oldest
+                  and liveliest neighborhoods in the city. The energy of the bazaar, the honest
+                  craft of the people around us, and the mix of history and hustle all shape how
+                  we approach our work.
+                </p>
+                <p>
+                  Today, PlayGame Horizon is officially registered with the SECP as PlayGame
+                  Horizon (SMC-Private) Limited. We take on carefully-scoped projects, build our
+                  own original titles, and partner with clients who care about quality as much as
+                  we do.
+                </p>
               </div>
             </motion.div>
             <motion.div
@@ -60,20 +74,19 @@ export default function AboutPage() {
               <div className="rounded-2xl bg-gradient-to-br from-brand-primary/20 to-brand-secondary/10 border border-brand-primary/25 p-8 h-72 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 grid-pattern opacity-20" />
                 <div className="relative text-center">
-                  <div className="font-display font-black text-7xl text-gradient mb-2">2020</div>
-                  <div className="text-slate-300 font-medium">Year Founded</div>
+                  <div className="font-display font-black text-7xl text-gradient mb-2">2024</div>
+                  <div className="text-slate-300 font-medium">Founded</div>
                 </div>
               </div>
-              {/* Floating stats */}
               {[
-                { label: "Players", value: "1M+" },
-                { label: "Countries", value: "80+" },
+                { label: "Based In", value: "Lahore" },
+                { label: "Focus", value: "Mobile · PC · Web" },
               ].map((s, i) => (
                 <div
                   key={s.label}
                   className={`absolute ${i === 0 ? "-top-4 -right-4" : "-bottom-4 -left-4"} bg-glass glow-border rounded-xl px-5 py-3 text-center`}
                 >
-                  <div className="font-display font-bold text-2xl text-gradient">{s.value}</div>
+                  <div className="font-display font-bold text-lg text-gradient">{s.value}</div>
                   <div className="text-xs text-slate-400">{s.label}</div>
                 </div>
               ))}
@@ -92,13 +105,13 @@ export default function AboutPage() {
                 icon: Target,
                 label: "Mission",
                 title: "Our Mission",
-                text: "To craft immersive, emotionally resonant gaming experiences that push the boundaries of technology and storytelling — making every player feel like the hero of their own epic adventure.",
+                text: "To build thoughtful, polished games — and to help creators and partners around the world ship their visions with the same care.",
               },
               {
                 icon: Eye,
                 label: "Vision",
                 title: "Our Vision",
-                text: "To become the world's most beloved independent game studio — a name synonymous with quality, creativity, and a genuine love for the art of play.",
+                text: "To be a trusted Pakistani game studio known for quality craft, honest work, and games that feel genuinely cared for.",
               },
             ].map(({ icon: Icon, label, title, text }, i) => (
               <motion.div
@@ -113,7 +126,7 @@ export default function AboutPage() {
                   <div className="w-10 h-10 rounded-xl bg-blue-gradient flex items-center justify-center">
                     <Icon className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-xs font-bold tracking-widest uppercase text-brand-primary">{label}</span>
+                  <span className="text-xs font-bold tracking-widest uppercase text-brand-secondary">{label}</span>
                 </div>
                 <h3 className="font-display font-bold text-2xl text-white mb-4">{title}</h3>
                 <p className="text-slate-300 leading-relaxed">{text}</p>
@@ -126,7 +139,7 @@ export default function AboutPage() {
       {/* Core Values */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle label="What We Stand For" title="Core " highlight="Values" description="The six principles that guide every decision we make — from code architecture to hiring to how we treat our players." />
+          <SectionTitle label="What We Stand For" title="Core " highlight="Values" description="The principles that shape how we approach work, teammates, and the games we build." />
           <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((v, i) => (
               <motion.div
@@ -155,16 +168,14 @@ export default function AboutPage() {
             <div className="absolute left-8 sm:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brand-primary/50 via-brand-primary/20 to-transparent" />
             {timeline.map((item, i) => (
               <motion.div
-                key={item.year}
+                key={`${item.year}-${i}`}
                 initial={{ opacity: 0, x: i % 2 === 0 ? -32 : 32 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className={`relative flex items-start gap-6 mb-10 ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}
               >
-                {/* Dot */}
                 <div className="absolute left-8 sm:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-brand-primary border-2 border-brand-dark shadow-glow-sm z-10" />
-                {/* Content */}
                 <div className={`ml-16 sm:ml-0 sm:w-[calc(50%-2rem)] ${i % 2 === 0 ? "sm:pr-10 sm:text-right" : "sm:pl-10"}`}>
                   <div className="font-display font-bold text-brand-primary text-2xl mb-1">{item.year}</div>
                   <h3 className="font-bold text-white text-lg mb-1">{item.title}</h3>
@@ -179,8 +190,8 @@ export default function AboutPage() {
       {/* Team */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle label="The Crew" title="Meet the " highlight="Team" description="World-class talent united by a singular obsession: making the best games possible." />
-          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <SectionTitle label="The Studio" title="Who We " highlight="Are" description="A small, focused crew that works closely together on every project." />
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, i) => (
               <motion.div
                 key={member.id}
@@ -190,12 +201,11 @@ export default function AboutPage() {
                 transition={{ delay: i * 0.08, duration: 0.5 }}
                 className="group bg-brand-card border border-brand-border/40 rounded-xl p-6 hover:border-brand-primary/40 transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Avatar */}
-                <div className="w-16 h-16 rounded-2xl bg-blue-gradient flex items-center justify-center text-2xl font-bold text-white mb-4 group-hover:shadow-glow-sm transition-shadow">
-                  {member.name.split(" ").map((n) => n[0]).join("")}
+                <div className="w-14 h-14 rounded-2xl bg-blue-gradient flex items-center justify-center text-xl font-bold text-white mb-4 group-hover:shadow-glow-sm transition-shadow">
+                  {member.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}
                 </div>
-                <h3 className="font-bold text-white text-lg">{member.name}</h3>
-                <p className="text-brand-primary text-sm font-medium mb-3">{member.role}</p>
+                <h3 className="font-bold text-white text-base">{member.name}</h3>
+                <p className="text-brand-secondary text-sm font-medium mb-3">{member.role}</p>
                 <p className="text-slate-400 text-sm leading-relaxed">{member.bio}</p>
               </motion.div>
             ))}

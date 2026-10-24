@@ -10,24 +10,24 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary:   "#2979FF",   // Electric Blue
-          secondary: "#00E5FF",   // Neon Cyan
-          purple:    "#7B2FFF",   // Neon Purple accent
-          royal:     "#1565C0",   // Royal Blue
-          deep:      "#0D47A1",   // Deep Blue
-          dark:      "#050A1A",   // Site Background
-          card:      "#060D20",   // Card Background (darker)
-          border:    "#162040",   // Border / divider
-          glow:      "#00BFFF",   // Glow Effect
+          primary:   "#2979FF",
+          secondary: "#00E5FF",
+          purple:    "#7B2FFF",
+          royal:     "#1565C0",
+          deep:      "#0D47A1",
+          dark:      "#050A1A",
+          card:      "#0A1428",
+          border:    "#1B2A4A",
+          glow:      "#00BFFF",
         },
       },
       fontFamily: {
         sans:    ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-orbitron)", "monospace"],
+        display: ["var(--font-display)", "Poppins", "sans-serif"],
       },
       backgroundImage: {
         "hero-gradient":
-          "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(41,121,255,0.35) 0%, rgba(123,47,255,0.15) 40%, transparent 70%)",
+          "radial-gradient(ellipse 90% 70% at 50% -10%, rgba(41,121,255,0.30) 0%, rgba(123,47,255,0.10) 40%, transparent 70%)",
         "card-gradient":
           "linear-gradient(135deg, rgba(41,121,255,0.10) 0%, rgba(0,229,255,0.04) 100%)",
         "blue-gradient":
@@ -37,20 +37,16 @@ const config: Config = {
         "tri-gradient":
           "linear-gradient(135deg, #2979FF 0%, #00E5FF 50%, #7B2FFF 100%)",
         "dark-gradient":
-          "linear-gradient(180deg, #050A1A 0%, #060D20 100%)",
+          "linear-gradient(180deg, #050A1A 0%, #0A1428 100%)",
         "shine":
-          "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.07) 50%, transparent 60%)",
-        "hex-bg":
-          "radial-gradient(circle at center, rgba(41,121,255,0.12) 1px, transparent 1px)",
+          "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%)",
       },
       boxShadow: {
-        "glow-sm":     "0 0 12px rgba(41,121,255,0.5)",
-        "glow":        "0 0 28px rgba(41,121,255,0.55)",
-        "glow-lg":     "0 0 60px rgba(41,121,255,0.45)",
-        "glow-cyan":   "0 0 28px rgba(0,229,255,0.55)",
-        "glow-purple": "0 0 28px rgba(123,47,255,0.5)",
-        "neon":        "0 0 5px #2979FF, 0 0 20px #2979FF, 0 0 40px rgba(41,121,255,0.5)",
-        "card":        "0 4px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.04)",
+        "glow-sm":     "0 0 12px rgba(41,121,255,0.35)",
+        "glow":        "0 4px 24px rgba(41,121,255,0.35)",
+        "glow-lg":     "0 10px 40px rgba(41,121,255,0.4)",
+        "glow-cyan":   "0 4px 24px rgba(0,229,255,0.35)",
+        "card":        "0 4px 24px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04)",
       },
       animation: {
         "pulse-slow":    "pulse 3s cubic-bezier(0.4,0,0.6,1) infinite",
@@ -58,21 +54,30 @@ const config: Config = {
         "float":         "float 6s ease-in-out infinite",
         "shimmer":       "shimmer 2.5s linear infinite",
         "spin-slow":     "spin 12s linear infinite",
-        "glitch":        "glitch 6s infinite",
-        "glitch2":       "glitch2 6s infinite",
-        "scan-line":     "scan-line 3s linear infinite",
-        "neon-flicker":  "neon-flicker 4s infinite",
-        "circuit-flow":  "circuit-flow 4s ease-in-out infinite",
         "gradient-shift":"gradient-shift 5s ease infinite",
+        "fade-in-up":    "fade-in-up 0.7s ease-out both",
       },
       keyframes: {
+        "fade-in-up": {
+          "from": { opacity: "0", transform: "translateY(16px)" },
+          "to":   { opacity: "1", transform: "translateY(0)" },
+        },
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%":       { transform: "translateY(-12px)" },
+          "50%":       { transform: "translateY(-10px)" },
         },
         shimmer: {
           "0%":   { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
+        },
+        "pulse-ring": {
+          "0%":   { transform: "scale(0.9)", opacity: "0.8" },
+          "100%": { transform: "scale(1.6)", opacity: "0" },
+        },
+        "gradient-shift": {
+          "0%":   { backgroundPosition: "0% 50%" },
+          "50%":  { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
         },
       },
     },

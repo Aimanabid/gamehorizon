@@ -2,16 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Gamepad2 } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const navLinks = [
   { label: "Home",     href: "/" },
-  { label: "Games",    href: "/games" },
-  { label: "Services", href: "/services" },
   { label: "About",    href: "/about" },
-  { label: "Blog",     href: "/blog" },
+  { label: "Services", href: "/services" },
+  { label: "Games",    href: "/games" },
   { label: "Careers",  href: "/careers" },
+  { label: "Blog",     href: "/blog" },
   { label: "Contact",  href: "/contact" },
 ];
 
@@ -32,54 +33,45 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-brand-dark/90 backdrop-blur-xl border-b border-brand-primary/20 shadow-[0_0_40px_rgba(41,121,255,0.08)]"
-          : "bg-transparent"
+          ? "bg-brand-dark/92 backdrop-blur-xl border-b border-brand-primary/20 shadow-[0_4px_24px_rgba(0,0,0,0.35)]"
+          : "bg-brand-dark/40 backdrop-blur-md"
       }`}
     >
-      {/* Top neon line when scrolled */}
-      {scrolled && (
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-primary/60 to-transparent" />
-      )}
-
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
-          <div className="relative w-8 h-8 flex items-center justify-center clip-corner-both"
-            style={{ background: "linear-gradient(135deg,#2979FF,#00E5FF)" }}>
-            <Gamepad2 className="w-4 h-4 text-white relative z-10" />
+          <div className="relative w-9 h-9 rounded-lg overflow-hidden ring-1 ring-brand-primary/40 group-hover:ring-brand-primary/70 transition">
+            <Image
+              src="/logo.jpeg"
+              alt="PlayGame Horizon logo"
+              fill
+              sizes="36px"
+              className="object-cover"
+              priority
+            />
           </div>
-          <span className="font-display font-bold text-lg tracking-[0.1em]">
-            GAME<span className="text-gradient">HORIZON</span>
+          <span className="font-display font-bold text-base sm:text-lg tracking-wide">
+            PLAYGAME<span className="text-gradient"> HORIZON</span>
           </span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-0.5">
+        <ul className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`relative px-4 py-2 font-display text-xs tracking-[0.12em] font-semibold transition-all duration-200 group ${
-                    active
-                      ? "text-brand-secondary"
-                      : "text-slate-400 hover:text-white"
+                  className={`relative px-3.5 py-2 text-sm font-medium transition-colors duration-200 group ${
+                    active ? "text-brand-secondary" : "text-slate-300 hover:text-white"
                   }`}
                 >
-                  {/* Active indicator */}
-                  {active && (
-                    <>
-                      <span className="absolute inset-0 bg-brand-primary/10 border border-brand-primary/25" />
-                      <span className="absolute bottom-0 left-3 right-3 h-[1px] bg-brand-secondary" />
-                    </>
-                  )}
-                  {/* Hover underline */}
-                  {!active && (
-                    <span className="absolute bottom-1 left-4 right-4 h-px bg-brand-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
-                  )}
-                  <span className="relative">{link.label}</span>
+                  {link.label}
+                  <span className={`absolute left-3 right-3 bottom-1 h-px bg-brand-secondary transition-transform origin-left duration-300 ${
+                    active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`} />
                 </Link>
               </li>
             );
@@ -87,29 +79,36 @@ export default function Navbar() {
         </ul>
 
         {/* CTA */}
-        <div className="hidden lg:flex items-center">
+        <div className="hidden lg:flex items-center gap-2">
+          <a
+            href="tel:+923174682744"
+            className="hidden xl:inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-brand-secondary transition-colors"
+          >
+            <Phone className="w-3.5 h-3.5" /> +92 317 4682744
+          </a>
           <Link
             href="/contact"
-            className="relative inline-flex items-center gap-2 px-5 py-2 font-display text-xs tracking-[0.12em] font-bold text-white clip-corner overflow-hidden group shadow-glow-sm hover:shadow-glow transition-shadow"
+            className="relative inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white rounded-lg overflow-hidden group shadow-glow-sm hover:shadow-glow transition-shadow"
           >
             <span className="absolute inset-0 bg-blue-gradient" />
             <span className="absolute inset-0 bg-shine bg-[length:200%_100%] opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity" />
-            <span className="relative">GET IN TOUCH</span>
+            <span className="relative">Get a Quote</span>
           </Link>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden p-2 text-slate-400 hover:text-white transition clip-corner bg-brand-card border border-brand-border/40"
+          className="lg:hidden p-2 text-slate-300 hover:text-white transition rounded-lg bg-brand-card border border-brand-border/60"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </nav>
 
       {/* Mobile drawer */}
-      <div className={`lg:hidden transition-all duration-300 overflow-hidden ${mobileOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}`}>
+      <div className={`lg:hidden transition-all duration-300 overflow-hidden ${mobileOpen ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"}`}>
         <div className="bg-brand-dark/97 backdrop-blur-xl border-t border-brand-primary/20 px-4 py-4 space-y-1">
           {navLinks.map((link) => {
             const active = pathname === link.href;
@@ -117,10 +116,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center gap-2 px-4 py-3 font-display text-xs tracking-[0.12em] font-semibold transition-all ${
+                className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition-all ${
                   active
-                    ? "bg-brand-primary/12 text-brand-secondary border-l-2 border-brand-secondary"
-                    : "text-slate-400 hover:text-white hover:bg-white/4 border-l-2 border-transparent"
+                    ? "bg-brand-primary/12 text-brand-secondary border border-brand-primary/25"
+                    : "text-slate-300 hover:text-white hover:bg-white/5 border border-transparent"
                 }`}
               >
                 {active && <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary" />}
@@ -128,12 +127,18 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <div className="pt-3">
+          <div className="pt-3 space-y-2">
+            <a
+              href="tel:+923174682744"
+              className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-brand-secondary bg-brand-primary/10 border border-brand-primary/25 rounded-lg"
+            >
+              <Phone className="w-4 h-4" /> +92 317 4682744
+            </a>
             <Link
               href="/contact"
-              className="flex items-center justify-center gap-2 px-4 py-3 font-display text-xs tracking-widest font-bold text-white bg-blue-gradient clip-corner shadow-glow-sm"
+              className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-white bg-blue-gradient rounded-lg shadow-glow-sm"
             >
-              GET IN TOUCH
+              Get a Quote
             </Link>
           </div>
         </div>

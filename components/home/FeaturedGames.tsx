@@ -12,9 +12,9 @@ const platformIcons: Record<string, LucideIcon> = {
 };
 
 const statusConfig = {
-  "released":       { label: "// LIVE",        cls: "text-emerald-400 border-emerald-500/40 bg-emerald-500/10" },
-  "coming-soon":    { label: "// COMING SOON",  cls: "text-amber-400  border-amber-500/40  bg-amber-500/10" },
-  "in-development": { label: "// IN DEV",       cls: "text-brand-primary border-brand-primary/40 bg-brand-primary/10" },
+  "released":       { label: "LIVE",         cls: "text-emerald-400 border-emerald-500/40 bg-emerald-500/10" },
+  "coming-soon":    { label: "COMING SOON",   cls: "text-amber-400  border-amber-500/40  bg-amber-500/10" },
+  "in-development": { label: "IN DEVELOPMENT", cls: "text-brand-primary border-brand-primary/40 bg-brand-primary/10" },
 };
 
 const cardAccents = [
@@ -53,7 +53,7 @@ export default function FeaturedGames() {
           label="Our Portfolio"
           title="Featured "
           highlight="Games"
-          description="From action-packed adventures to massive online worlds — the titles that define the GameHorizon experience."
+          description="From cozy puzzles to local-flavor arcade hits — these are the projects shaping PlayGame Horizon's early catalog."
         />
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -66,9 +66,8 @@ export default function FeaturedGames() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`group relative overflow-hidden bg-brand-card border border-brand-border/50
+                className={`group relative overflow-hidden bg-brand-card border border-brand-border/50 rounded-2xl
                   hover:border-brand-primary/60 transition-all duration-300 hover:shadow-glow
-                  clip-corner-lg scan-sweep
                   ${i === 0 ? "md:col-span-2 h-80" : "h-64"}`}
               >
                 {/* Game art */}
@@ -105,7 +104,7 @@ export default function FeaturedGames() {
                 {/* Content */}
                 <div className="relative h-full flex flex-col justify-end p-6">
                   {/* Status */}
-                  <div className={`inline-flex self-start mb-3 px-3 py-0.5 border font-display text-[10px] tracking-[0.15em] font-semibold ${status.cls}`}>
+                  <div className={`inline-flex self-start mb-3 px-3 py-0.5 rounded-full border font-display text-[10px] tracking-[0.15em] font-semibold ${status.cls}`}>
                     {status.label}
                   </div>
 
@@ -118,7 +117,7 @@ export default function FeaturedGames() {
                         {game.description}
                       </p>
                       <div className="flex items-center flex-wrap gap-3">
-                        <span className="hud-label opacity-60">{game.genre}</span>
+                        <span className="text-[11px] uppercase tracking-wider font-semibold text-brand-secondary/80">{game.genre}</span>
                         <span className="w-px h-3 bg-brand-border" />
                         {game.platform.slice(0, 3).map((p) => (
                           <PlatformBadge key={p} platform={p} />
@@ -158,9 +157,9 @@ export default function FeaturedGames() {
         >
           <Link
             href="/games"
-            className="inline-flex items-center gap-2 px-6 py-3 clip-corner bg-glass border border-brand-primary/30 text-brand-primary font-display font-semibold text-sm tracking-wider hover:bg-brand-primary/10 hover:border-brand-primary/60 hover:shadow-glow-sm transition-all duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-glass border border-brand-primary/30 text-brand-secondary font-display font-semibold text-sm tracking-wider hover:bg-brand-primary/10 hover:border-brand-primary/60 hover:shadow-glow-sm transition-all duration-200"
           >
-            VIEW ALL GAMES <ArrowRight className="w-4 h-4" />
+            View All Games <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
       </div>
