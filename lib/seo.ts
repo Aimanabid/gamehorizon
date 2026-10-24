@@ -72,7 +72,7 @@ export const siteStructuredData = {
     name: LEGAL_NAME,
     alternateName: SITE_NAME,
     url: BASE_URL,
-    logo: `${BASE_URL}/logo.jpeg`,
+    logo: `${BASE_URL}/logo.png`,
     description:
       "PlayGame Horizon (SMC-Private) Limited is a Lahore-based game development studio crafting polished, player-first games for mobile, PC, and web.",
     foundingDate: "2024",
@@ -87,7 +87,7 @@ export const siteStructuredData = {
         "@type": "ContactPoint",
         contactType: "customer support",
         email: "info@playgamehorizon.com",
-        telephone: "+92-317-4682744",
+        telephone: "+92-335-6507151",
         availableLanguage: ["English", "Urdu"],
       },
     ],

@@ -42,10 +42,10 @@ export default function CTASection() {
               <ArrowRight className="w-4 h-4 relative transition-transform group-hover:translate-x-1" />
             </Link>
             <a
-              href="tel:+923174682744"
+              href="tel:+923356507151"
               className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-brand-secondary rounded-xl bg-brand-primary/10 border border-brand-primary/30 hover:bg-brand-primary/20 transition-all w-full sm:w-auto justify-center"
             >
-              <Phone className="w-4 h-4" /> +92 317 4682744
+              <Phone className="w-4 h-4" /> +92 335 6507151
             </a>
           </div>
 

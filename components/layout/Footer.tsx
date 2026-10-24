@@ -88,16 +88,11 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
           {/* Brand column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10 rounded-lg overflow-hidden ring-1 ring-brand-primary/40">
-                <Image src="/logo.jpeg" alt="PlayGame Horizon" fill sizes="40px" className="object-cover" />
+            <Link href="/" className="flex flex-col items-start gap-2 mb-4" aria-label="PlayGame Horizon home">
+              <div className="relative h-14 w-[200px] drop-shadow-[0_0_14px_rgba(41,121,255,0.4)]">
+                <Image src="/logo.png" alt="PlayGame Horizon" fill sizes="200px" className="object-contain object-left" />
               </div>
-              <div>
-                <div className="font-display font-bold text-lg tracking-wide">
-                  PLAYGAME<span className="text-gradient"> HORIZON</span>
-                </div>
-                <div className="text-[11px] text-slate-500 tracking-wider">(SMC-PRIVATE) LIMITED</div>
-              </div>
+              <div className="text-[11px] text-slate-500 tracking-wider">(SMC-PRIVATE) LIMITED</div>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-5 max-w-xs">
               A Pakistan-based game development studio building thoughtful, player-first
@@ -114,9 +109,9 @@ export default function Footer() {
                 <Mail className="w-4 h-4 mt-0.5 text-brand-primary group-hover:text-brand-secondary transition-colors flex-shrink-0" />
                 <span>playgamehorizon@gmail.com</span>
               </a>
-              <a href="tel:+923174682744" className="flex items-start gap-2 text-sm text-slate-400 hover:text-brand-secondary transition-colors group">
+              <a href="tel:+923356507151" className="flex items-start gap-2 text-sm text-slate-400 hover:text-brand-secondary transition-colors group">
                 <Phone className="w-4 h-4 mt-0.5 text-brand-primary group-hover:text-brand-secondary transition-colors flex-shrink-0" />
-                <span>+92 317 4682744</span>
+                <span>+92 335 6507151</span>
               </a>
               <div className="flex items-start gap-2 text-sm text-slate-400">
                 <MapPin className="w-4 h-4 mt-0.5 text-brand-primary flex-shrink-0" />

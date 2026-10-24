@@ -63,14 +63,11 @@ export default function WelcomePopup() {
             </button>
 
             <div className="relative">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="relative w-12 h-12 rounded-xl overflow-hidden ring-2 ring-brand-primary/40">
-                  <Image src="/logo.jpeg" alt="PlayGame Horizon" fill sizes="48px" className="object-cover" />
+              <div className="flex flex-col items-center mb-5 text-center">
+                <div className="relative h-16 w-[220px] mb-2 drop-shadow-[0_0_16px_rgba(41,121,255,0.5)]">
+                  <Image src="/logo.png" alt="PlayGame Horizon" fill sizes="220px" className="object-contain" />
                 </div>
-                <div>
-                  <div className="font-display font-bold text-base text-white">PlayGame Horizon</div>
-                  <div className="text-[11px] text-slate-500 tracking-wider">(SMC-PRIVATE) LIMITED</div>
-                </div>
+                <div className="text-[11px] text-slate-500 tracking-wider">(SMC-PRIVATE) LIMITED</div>
               </div>
 
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-primary/15 border border-brand-primary/30 text-brand-secondary text-xs font-semibold mb-4">

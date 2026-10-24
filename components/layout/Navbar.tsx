@@ -40,20 +40,17 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
-          <div className="relative w-9 h-9 rounded-lg overflow-hidden ring-1 ring-brand-primary/40 group-hover:ring-brand-primary/70 transition">
+        <Link href="/" className="flex items-center gap-2 group flex-shrink-0" aria-label="PlayGame Horizon home">
+          <div className="relative h-10 w-[150px] sm:w-[180px] drop-shadow-[0_0_12px_rgba(41,121,255,0.4)] group-hover:drop-shadow-[0_0_18px_rgba(0,229,255,0.6)] transition-all duration-300">
             <Image
-              src="/logo.jpeg"
-              alt="PlayGame Horizon logo"
+              src="/logo.png"
+              alt="PlayGame Horizon"
               fill
-              sizes="36px"
-              className="object-cover"
+              sizes="180px"
+              className="object-contain"
               priority
             />
           </div>
-          <span className="font-display font-bold text-base sm:text-lg tracking-wide">
-            PLAYGAME<span className="text-gradient"> HORIZON</span>
-          </span>
         </Link>
 
         {/* Desktop links */}
@@ -81,10 +78,10 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden lg:flex items-center gap-2">
           <a
-            href="tel:+923174682744"
+            href="tel:+923356507151"
             className="hidden xl:inline-flex items-center gap-1.5 text-xs text-slate-300 hover:text-brand-secondary transition-colors"
           >
-            <Phone className="w-3.5 h-3.5" /> +92 317 4682744
+            <Phone className="w-3.5 h-3.5" /> +92 335 6507151
           </a>
           <Link
             href="/contact"
@@ -129,10 +126,10 @@ export default function Navbar() {
           })}
           <div className="pt-3 space-y-2">
             <a
-              href="tel:+923174682744"
+              href="tel:+923356507151"
               className="flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-brand-secondary bg-brand-primary/10 border border-brand-primary/25 rounded-lg"
             >
-              <Phone className="w-4 h-4" /> +92 317 4682744
+              <Phone className="w-4 h-4" /> +92 335 6507151
             </a>
             <Link
               href="/contact"

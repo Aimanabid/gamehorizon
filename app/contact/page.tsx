@@ -209,13 +209,13 @@ export default function ContactPage() {
                       <div className="text-white text-sm font-medium group-hover:text-brand-secondary transition-colors truncate">playgamehorizon@gmail.com</div>
                     </div>
                   </a>
-                  <a href="tel:+923174682744" className="flex items-center gap-3 p-4 rounded-xl bg-brand-card border border-brand-border/40 hover:border-brand-primary/40 transition group">
+                  <a href="tel:+923356507151" className="flex items-center gap-3 p-4 rounded-xl bg-brand-card border border-brand-border/40 hover:border-brand-primary/40 transition group">
                     <div className="w-10 h-10 rounded-lg bg-brand-primary/20 flex items-center justify-center flex-shrink-0">
                       <Phone className="w-5 h-5 text-brand-primary" />
                     </div>
                     <div>
                       <div className="text-xs text-slate-500 mb-0.5">Phone / WhatsApp</div>
-                      <div className="text-white text-sm font-medium group-hover:text-brand-secondary transition-colors">+92 317 4682744</div>
+                      <div className="text-white text-sm font-medium group-hover:text-brand-secondary transition-colors">+92 335 6507151</div>
                     </div>
                   </a>
                   <a
