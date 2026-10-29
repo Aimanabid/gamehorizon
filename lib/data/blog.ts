@@ -14,6 +14,8 @@ export interface BlogPost {
   coverImage?: string;
   gallery?: { src: string; alt: string }[];
   cta?: { label: string; href: string };
+  // Answers support "[text](url)" links.
+  faqs?: { question: string; answer: string }[];
 }
 
 export const blogPosts: BlogPost[] = [
@@ -75,6 +77,48 @@ If you love farming games, farm simulators, tractor games, animal farm games or 
       { src: "/images/blog/village-farm/screenshot-7.jpg", alt: "Village Farm 2027 gameplay screenshot 7" },
       { src: "/images/blog/village-farm/screenshot-8.jpg", alt: "Village Farm 2027 gameplay screenshot 8" },
       { src: "/images/blog/village-farm/screenshot-9.jpg", alt: "Village Farm 2027 gameplay screenshot 9" },
+    ],
+    faqs: [
+      {
+        question: "What is Village Farm 2027?",
+        answer:
+          "Village Farm 2027 is a free 3D farm simulator for Android. You run your own village farm: plough fields, grow crops, look after animals, drive a tractor or bullock cart, and sell your harvest. See the full [Village Farm 2027 game page](/games/village-farm-2027) for details.",
+      },
+      {
+        question: "Is Village Farm 2027 free to play?",
+        answer:
+          "Yes. It is a free farming game and costs nothing to download from [Google Play](https://play.google.com/store/apps/details?id=com.pgh.village.farm.game2027&hl=en&gl=US). The game shows ads, and you can remove them with a one-time No Ads purchase.",
+      },
+      {
+        question: "Which platforms can I play this farming game on?",
+        answer:
+          "Village Farm 2027 is a farming game for Android phones and tablets. [Download it on Google Play](https://play.google.com/store/apps/details?id=com.pgh.village.farm.game2027&hl=en&gl=US).",
+      },
+      {
+        question: "Do I need an internet connection to play?",
+        answer:
+          "Yes, an internet connection is required to play Village Farm 2027.",
+      },
+      {
+        question: "What can I do in this farm simulator?",
+        answer:
+          "Grow wheat, corn and tomatoes, milk cows, collect eggs, care for pigs, chickens and goats, carry hay bales, complete village missions and upgrade your farm. It combines crop farming, animal farm gameplay and tractor farming in one village life game.",
+      },
+      {
+        question: "Can I drive a tractor in Village Farm 2027?",
+        answer:
+          "Yes. You can drive a powerful red tractor as well as a classic bullock cart to haul your harvest around the farm. Browse the [screenshots](/press) to see them in action.",
+      },
+      {
+        question: "How do I remove ads from the game?",
+        answer:
+          "Use the one-time No Ads purchase inside the game. If you have trouble with a purchase, [contact us](/contact) and we will help.",
+      },
+      {
+        question: "Who makes Village Farm 2027?",
+        answer:
+          "It is made by PlayGame Horizon, a small game studio in Lahore, Pakistan. Learn more [about the studio](/about) or see [our other games](/games).",
+      },
     ],
   },
   {

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, Clock, ExternalLink } from "lucide-react";
+import { ArrowLeft, Calendar, ChevronDown, Clock, ExternalLink } from "lucide-react";
 import ImageCarousel from "@/components/ui/ImageCarousel";
 import { blogPosts } from "@/lib/data/blog";
 import { buildMetadata } from "@/lib/seo";
@@ -34,6 +34,17 @@ function renderInline(text: string) {
   return parts.map((part, i) => {
     const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (!m) return part;
+    if (m[2].startsWith("/")) {
+      return (
+        <Link
+          key={i}
+          href={m[2]}
+          className="text-brand-secondary underline underline-offset-2 hover:text-white transition-colors"
+        >
+          {m[1]}
+        </Link>
+      );
+    }
     return (
       <a
         key={i}
@@ -78,6 +89,14 @@ function renderContent(content: string) {
     });
 }
 
+// Same "[text](url)" syntax as renderInline, as HTML for FAQ structured data.
+function inlineToHtml(text: string) {
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label: string, href: string) => {
+    const url = href.startsWith("/") ? `${BASE_URL}${href}` : href;
+    return `<a href="${url}">${label}</a>`;
+  });
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
   const { id } = await params;
   const post = blogPosts.find((p) => p.id === id);
@@ -99,9 +118,22 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
     mainEntityOfPage: `${BASE_URL}/blog/${post.id}`,
   };
 
+  const faqJsonLd = post.faqs && {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: inlineToHtml(faq.answer) },
+    })),
+  };
+
   return (
     <div className="pt-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
       <header className="relative overflow-hidden grid-pattern">
         {post.coverImage && (
           <Image
@@ -165,6 +197,28 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
         <section className="px-4 sm:px-6 lg:px-8 pb-4">
           <h2 className="max-w-3xl mx-auto font-display font-bold text-2xl text-white mb-4">Screenshots</h2>
           <ImageCarousel images={post.gallery} />
+        </section>
+      )}
+
+      {post.faqs && (
+        <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10" aria-labelledby="faq-heading">
+          <h2 id="faq-heading" className="font-display font-bold text-2xl text-white mb-4">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-3">
+            {post.faqs.map((faq) => (
+              <details
+                key={faq.question}
+                className="group bg-brand-card border border-brand-border/40 rounded-xl open:border-brand-primary/40 transition-colors"
+              >
+                <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-semibold text-white">
+                  <h3 className="text-base font-semibold">{faq.question}</h3>
+                  <ChevronDown className="w-5 h-5 shrink-0 text-brand-secondary transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="px-5 pb-4 text-slate-300 leading-relaxed">{renderInline(faq.answer)}</p>
+              </details>
+            ))}
+          </div>
         </section>
       )}
 
