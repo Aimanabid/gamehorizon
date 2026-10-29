@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -41,12 +42,14 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
               i === active ? "opacity-100" : "opacity-40"
             }`}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={img.src}
               alt={img.alt}
-              loading={i === 0 ? "eager" : "lazy"}
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              priority={i === 0}
+              sizes="(max-width: 768px) 84vw, 1100px"
+              quality={70}
+              className="object-cover"
               draggable={false}
             />
           </div>

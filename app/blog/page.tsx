@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowRight, Search } from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Link from "next/link";
+import Image from "next/image";
 import { blogPosts } from "@/lib/data/blog";
 
 const allCategories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))];
@@ -63,8 +64,7 @@ export default function BlogPage() {
                 }`}>
                   <div className="absolute inset-0 grid-pattern opacity-20" />
                   {post.coverImage ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={post.coverImage} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+                    <Image src={post.coverImage} alt={post.title} fill sizes="(max-width: 768px) 100vw, 400px" quality={70} className="object-cover" />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-2xl font-bold text-white/50">
@@ -137,16 +137,15 @@ export default function BlogPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="group bg-brand-card border border-brand-border/40 rounded-xl p-5 flex flex-col sm:flex-row gap-5 hover:border-brand-primary/40 transition-all duration-200"
+                className="group relative bg-brand-card border border-brand-border/40 rounded-xl p-5 flex flex-col sm:flex-row gap-5 hover:border-brand-primary/40 transition-all duration-200"
               >
-                <div className={`w-full sm:w-36 h-24 flex-shrink-0 rounded-lg overflow-hidden ${
+                <div className={`relative w-full sm:w-36 h-24 flex-shrink-0 rounded-lg overflow-hidden ${
                   i % 3 === 0 ? "bg-gradient-to-br from-blue-800/50 to-brand-deep" :
                   i % 3 === 1 ? "bg-gradient-to-br from-purple-800/50 to-brand-deep" :
                   "bg-gradient-to-br from-teal-800/50 to-brand-deep"
                 }`}>
                   {post.coverImage ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
+                    <Image src={post.coverImage} alt={post.title} fill sizes="(max-width: 640px) 100vw, 144px" quality={70} className="object-cover" />
                   ) : (
                     <div className="w-full h-full grid-pattern opacity-20" />
                   )}

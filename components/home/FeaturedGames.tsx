@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Star, Monitor, Smartphone, Gamepad, ArrowRight, type LucideIcon } from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { games } from "@/lib/data/games";
@@ -71,10 +72,13 @@ export default function FeaturedGames() {
                   ${i === 0 ? "md:col-span-2 h-80" : "h-64"}`}
               >
                 {/* Game art */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={game.image}
                   alt={game.title}
+                  fill
+                  sizes={i === 0 ? "(max-width: 768px) 100vw, 1200px" : "(max-width: 768px) 100vw, 600px"}
+                  quality={70}
+                  unoptimized={game.image.endsWith(".svg")}
                   className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-80 transition-opacity duration-500"
                 />
 

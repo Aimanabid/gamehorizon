@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { blogPosts } from "@/lib/data/blog";
@@ -45,8 +46,7 @@ export default function LatestNews() {
               }`}>
                 <div className="absolute inset-0 grid-pattern opacity-20" />
                 {post.coverImage && (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={post.coverImage} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+                  <Image src={post.coverImage} alt={post.title} fill sizes="(max-width: 768px) 100vw, 400px" quality={70} className="object-cover" />
                 )}
                 <div className="absolute bottom-3 left-3">
                   <span className="px-2 py-1 rounded-md bg-brand-primary/80 text-white text-xs font-semibold">
