@@ -35,7 +35,7 @@ export default function LatestNews() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group bg-brand-card rounded-xl border border-brand-border/40 hover:border-brand-primary/40 overflow-hidden hover:-translate-y-1 hover:shadow-glow-sm transition-all duration-300"
+              className="group relative bg-brand-card rounded-xl border border-brand-border/40 hover:border-brand-primary/40 overflow-hidden hover:-translate-y-1 hover:shadow-glow-sm transition-all duration-300"
             >
               {/* Image placeholder */}
               <div className={`h-44 relative overflow-hidden ${
@@ -44,6 +44,10 @@ export default function LatestNews() {
                 "bg-gradient-to-br from-teal-900/50 to-brand-deep"
               }`}>
                 <div className="absolute inset-0 grid-pattern opacity-20" />
+                {post.coverImage && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={post.coverImage} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+                )}
                 <div className="absolute bottom-3 left-3">
                   <span className="px-2 py-1 rounded-md bg-brand-primary/80 text-white text-xs font-semibold">
                     {post.category}
@@ -83,7 +87,7 @@ export default function LatestNews() {
                   </div>
                   <Link
                     href={`/blog/${post.id}`}
-                    className="text-xs font-semibold text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all"
+                    className="text-xs font-semibold text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all after:absolute after:inset-0 after:content-['']"
                   >
                     Read <ArrowRight className="w-3 h-3" />
                   </Link>

@@ -78,6 +78,16 @@ function GameModal({ game, onClose }: { game: Game; onClose: () => void }) {
                 <span key={tag} className="px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-medium">{tag}</span>
               ))}
             </div>
+            {game.storeUrl && (
+              <a
+                href={game.storeUrl}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-2 mb-5 px-5 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-semibold hover:bg-brand-royal transition-colors"
+              >
+                Get it on Google Play
+              </a>
+            )}
             <div className="flex items-center justify-between border-t border-brand-border/30 pt-4">
               <div className="flex gap-3">
                 {game.platform.map((p) => {

@@ -11,9 +11,72 @@ export interface BlogPost {
   image: string;
   tags: string[];
   featured?: boolean;
+  coverImage?: string;
+  gallery?: { src: string; alt: string }[];
+  cta?: { label: string; href: string };
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: "village-farm-2027",
+    title: "Village Farm 2027 Is Out Now on Google Play",
+    excerpt:
+      "Grow crops, milk cows, drive tractors and bullock carts in our new 3D farm life game. Free to play on Android.",
+    content: `Village Farm 2027 is a 3D farm life game where you run your own village farm from sunrise to sunset. Grow crops, take care of your animals, drive tractors and bullock carts, sell your harvest and build your dream farm. It is free to download on Google Play.
+
+## Live the farmer's life
+
+- Plough your fields, sow seeds and grow wheat, corn, tomatoes and more
+- Milk cows, collect eggs and look after cows, pigs, chickens and goats
+- Drive a classic bullock cart or a powerful red tractor
+- Carry hay bales and haul your harvest across the farm
+- Sell your crops and produce to earn coins
+- Build and upgrade your farm to make it your dream farm
+
+## Explore a living village
+
+Walk through golden wheat fields, red barns, rivers and open countryside in detailed 3D graphics. Follow the waypoint markers to your next farming mission and keep your village farm running.
+
+## Game features
+
+- Realistic 3D farming simulator gameplay
+- Farm animals: cows, pigs, chickens and goats
+- Tractor farming and bullock cart farming
+- Crop farming: plant, water, harvest and sell
+- Village missions to complete
+- Easy controls for all ages
+- Beautiful countryside environment
+
+## Free to play
+
+Village Farm 2027 is free to download and play. The game shows ads, and you can remove them at any time with the one-time No Ads purchase. An internet connection is required to play.
+
+If you love farming games, farm simulators, tractor games, animal farm games or village life games, this one is for you. [Download Village Farm 2027 on Google Play](https://play.google.com/store/apps/details?id=com.pgh.village.farm.game2027&hl=en&gl=US) and start your farming adventure today!`,
+    category: "Launches",
+    author: "PlayGame Horizon Team",
+    authorRole: "Studio",
+    date: "2026-10-29",
+    readTime: 3,
+    image: "/images/blog/village-farm/feature-graphic.jpg",
+    tags: ["Launch", "Farming", "Android"],
+    featured: true,
+    coverImage: "/images/blog/village-farm/feature-graphic.jpg",
+    cta: {
+      label: "Get it on Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.pgh.village.farm.game2027&hl=en&gl=US",
+    },
+    gallery: [
+      { src: "/images/blog/village-farm/screenshot-1.jpg", alt: "Walking through golden wheat fields past the scarecrow" },
+      { src: "/images/blog/village-farm/screenshot-2.jpg", alt: "Village Farm 2027 gameplay screenshot 2" },
+      { src: "/images/blog/village-farm/screenshot-3.jpg", alt: "Village Farm 2027 gameplay screenshot 3" },
+      { src: "/images/blog/village-farm/screenshot-4.jpg", alt: "Village Farm 2027 gameplay screenshot 4" },
+      { src: "/images/blog/village-farm/screenshot-5.jpg", alt: "Village Farm 2027 gameplay screenshot 5" },
+      { src: "/images/blog/village-farm/screenshot-6.jpg", alt: "Village Farm 2027 gameplay screenshot 6" },
+      { src: "/images/blog/village-farm/screenshot-7.jpg", alt: "Village Farm 2027 gameplay screenshot 7" },
+      { src: "/images/blog/village-farm/screenshot-8.jpg", alt: "Village Farm 2027 gameplay screenshot 8" },
+      { src: "/images/blog/village-farm/screenshot-9.jpg", alt: "Village Farm 2027 gameplay screenshot 9" },
+    ],
+  },
   {
     id: "introducing-playgame-horizon",
     title: "Introducing PlayGame Horizon — Building Great Games from Lahore",

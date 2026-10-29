@@ -54,7 +54,7 @@ export default function BlogPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group bg-brand-card border border-brand-border/40 rounded-xl overflow-hidden hover:border-brand-primary/40 hover:-translate-y-1 hover:shadow-glow-sm transition-all duration-300"
+                className="group relative bg-brand-card border border-brand-border/40 rounded-xl overflow-hidden hover:border-brand-primary/40 hover:-translate-y-1 hover:shadow-glow-sm transition-all duration-300"
               >
                 <div className={`h-48 relative overflow-hidden ${
                   i === 0 ? "bg-gradient-to-br from-blue-900/60 to-brand-deep" :
@@ -62,11 +62,16 @@ export default function BlogPage() {
                   "bg-gradient-to-br from-teal-900/60 to-brand-deep"
                 }`}>
                   <div className="absolute inset-0 grid-pattern opacity-20" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-2xl font-bold text-white/50">
-                      {post.author[0]}
+                  {post.coverImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={post.coverImage} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-2xl font-bold text-white/50">
+                        {post.author[0]}
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className="absolute bottom-3 left-3">
                     <span className="px-2 py-1 bg-brand-primary/80 rounded text-xs font-semibold text-white">{post.category}</span>
                   </div>
@@ -80,7 +85,7 @@ export default function BlogPage() {
                   <p className="text-slate-400 text-sm line-clamp-2 mb-4">{post.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-slate-400">{post.author}</span>
-                    <Link href={`/blog/${post.id}`} className="text-xs font-semibold text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+                    <Link href={`/blog/${post.id}`} className="text-xs font-semibold text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all after:absolute after:inset-0 after:content-['']">
                       Read <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
@@ -139,7 +144,12 @@ export default function BlogPage() {
                   i % 3 === 1 ? "bg-gradient-to-br from-purple-800/50 to-brand-deep" :
                   "bg-gradient-to-br from-teal-800/50 to-brand-deep"
                 }`}>
-                  <div className="w-full h-full grid-pattern opacity-20" />
+                  {post.coverImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full grid-pattern opacity-20" />
+                  )}
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
@@ -154,7 +164,7 @@ export default function BlogPage() {
                       <div className="w-6 h-6 rounded-full bg-brand-primary/30 flex items-center justify-center text-xs font-bold text-brand-primary">{post.author[0]}</div>
                       <span className="text-xs text-slate-400">{post.author} · {post.authorRole}</span>
                     </div>
-                    <Link href={`/blog/${post.id}`} className="text-xs font-semibold text-brand-primary flex items-center gap-1 hover:gap-2 transition-all">
+                    <Link href={`/blog/${post.id}`} className="text-xs font-semibold text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all after:absolute after:inset-0 after:content-['']">
                       Read More <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>

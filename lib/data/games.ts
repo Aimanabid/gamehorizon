@@ -11,9 +11,24 @@ export interface Game {
   rating?: number;
   tags: string[];
   trailer?: string;
+  storeUrl?: string;
 }
 
 export const games: Game[] = [
+  {
+    id: "village-farm-2027",
+    title: "Village Farm 2027",
+    genre: "Simulation",
+    platform: ["Mobile"],
+    status: "released",
+    description: "Farm life 3D: grow crops, milk cows, drive tractors & bullock carts.",
+    longDescription:
+      "Run your own village farm from sunrise to sunset. Plough fields, grow wheat, corn and tomatoes, milk cows, look after pigs, chickens and goats, drive a bullock cart or a red tractor, and sell your harvest to build your dream farm. Free to play on Android.",
+    image: "/images/blog/village-farm/feature-graphic.jpg",
+    releaseDate: "2026-10-29",
+    tags: ["Simulation", "Farming", "3D", "Android"],
+    storeUrl: "https://play.google.com/store/apps/details?id=com.pgh.village.farm.game2027&hl=en&gl=US",
+  },
   {
     id: "horizon-runner",
     title: "Horizon Runner",
