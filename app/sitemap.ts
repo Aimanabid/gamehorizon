@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/games`, changeFrequency: "weekly" as const, priority: 0.9, lastModified: latestGame },
     { url: `${BASE_URL}/services`, changeFrequency: "monthly" as const, priority: 0.8, lastModified: STATIC_PAGES_UPDATED },
     { url: `${BASE_URL}/blog`, changeFrequency: "daily" as const, priority: 0.8, lastModified: latestPost },
+    { url: `${BASE_URL}/press`, changeFrequency: "monthly" as const, priority: 0.7, lastModified: STATIC_PAGES_UPDATED },
     { url: `${BASE_URL}/careers`, changeFrequency: "weekly" as const, priority: 0.7, lastModified: STATIC_PAGES_UPDATED },
     { url: `${BASE_URL}/contact`, changeFrequency: "monthly" as const, priority: 0.7, lastModified: STATIC_PAGES_UPDATED },
   ];

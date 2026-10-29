@@ -11,6 +11,7 @@ const footerLinks = {
     { label: "Our Services", href: "/services" },
     { label: "Careers", href: "/careers" },
     { label: "Blog", href: "/blog" },
+    { label: "Press Kit", href: "/press" },
   ],
   Services: [
     { label: "Game Development", href: "/services#development" },
