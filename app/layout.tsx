@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       "A Pakistan-based game development studio building thoughtful, player-first games for mobile, PC, and the web.",
     images: [
       {
-        url: "/logo.png",
+        url: "/og-default.jpg",
         width: 1200,
         height: 630,
         alt: "PlayGame Horizon",
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
     creator: "@playgamehorizon",
   },
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/logo-icon.png",
+    apple: "/logo-icon.png",
   },
 };
 
