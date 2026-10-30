@@ -163,3 +163,4 @@ thebrave.io, 1234634, RESELLER, c25b2154543746ac
 unity.com, 150133561, DIRECT, 96cabb5fbdde37a7
 pangleglobal.com, 5045451, DIRECT
 vungle.com, 6ae20424072353e2c43bf6b0, DIRECT, c107d686becd2d77
+facebook.com, 1759698038471945, DIRECT, c3e20eee3f780d68
