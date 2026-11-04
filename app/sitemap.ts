@@ -31,6 +31,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/press`, changeFrequency: "monthly" as const, priority: 0.7, lastModified: STATIC_PAGES_UPDATED },
     { url: `${BASE_URL}/careers`, changeFrequency: "weekly" as const, priority: 0.7, lastModified: STATIC_PAGES_UPDATED },
     { url: `${BASE_URL}/contact`, changeFrequency: "monthly" as const, priority: 0.7, lastModified: STATIC_PAGES_UPDATED },
+    { url: `${BASE_URL}/privacy`, changeFrequency: "yearly" as const, priority: 0.4, lastModified: STATIC_PAGES_UPDATED },
+    { url: `${BASE_URL}/terms`, changeFrequency: "yearly" as const, priority: 0.4, lastModified: STATIC_PAGES_UPDATED },
   ];
 
   const gamePages = games.map((game) => ({
