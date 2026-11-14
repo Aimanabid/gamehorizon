@@ -6,9 +6,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ImageCarouselProps {
   images: { src: string; alt: string }[];
+  // Phone-shaped (9:16) screenshots: narrower slides, no 16:9 cropping.
+  portrait?: boolean;
 }
 
-export default function ImageCarousel({ images }: ImageCarouselProps) {
+export default function ImageCarousel({ images, portrait = false }: ImageCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
 
@@ -38,7 +40,9 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
         {images.map((img, i) => (
           <div
             key={img.src}
-            className={`relative flex-none w-[84%] aspect-video snap-start rounded-2xl overflow-hidden border border-brand-border/40 transition-opacity duration-300 ${
+            className={`relative flex-none ${
+              portrait ? "w-[56%] sm:w-[30%] lg:w-[22%] aspect-[9/16]" : "w-[84%] aspect-video"
+            } snap-start rounded-2xl overflow-hidden border border-brand-border/40 transition-opacity duration-300 ${
               i === active ? "opacity-100" : "opacity-40"
             }`}
           >
@@ -47,7 +51,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
               alt={img.alt}
               fill
               priority={i === 0}
-              sizes="(max-width: 768px) 84vw, 1100px"
+              sizes={portrait ? "(max-width: 768px) 56vw, 340px" : "(max-width: 768px) 84vw, 1100px"}
               quality={70}
               className="object-cover"
               draggable={false}
@@ -55,7 +59,7 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
           </div>
         ))}
         {/* trailing space so the last slide can snap to the left edge */}
-        <div className="flex-none w-[16%] -ml-4" aria-hidden />
+        <div className={`flex-none -ml-4 ${portrait ? "w-[44%] sm:w-[70%] lg:w-[78%]" : "w-[16%]"}`} aria-hidden />
       </div>
 
       {active > 0 && (

@@ -196,7 +196,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
       {post.gallery && (
         <section className="px-4 sm:px-6 lg:px-8 pb-4">
           <h2 className="max-w-3xl mx-auto font-display font-bold text-2xl text-white mb-4">Screenshots</h2>
-          <ImageCarousel images={post.gallery} />
+          <ImageCarousel images={post.gallery} portrait={post.galleryPortrait} />
         </section>
       )}
 

@@ -16,6 +16,20 @@ export interface Game {
 
 export const games: Game[] = [
   {
+    id: "football-league-27",
+    title: "Football League 27",
+    genre: "Sports",
+    platform: ["Mobile"],
+    status: "released",
+    description: "Penalty shootouts vs smart AI — climb levels, win tournaments, earn coins!",
+    longDescription:
+      "Step up to the spot in Football League 27, the penalty shootout game where every shot and every save decides the match. Take your kick, watch the cinematic replay, then switch sides and defend the goal as the AI strikes back. Climb the league tiers, earn coins and take the trophy. Available on Android.",
+    image: "/images/blog/football-league-27/feature-graphic.jpg",
+    releaseDate: "2026-11-14",
+    tags: ["Sports", "Football", "Penalty Shootout", "Android"],
+    storeUrl: "https://play.google.com/store/apps/details?id=com.Pgh.Football.league",
+  },
+  {
     id: "village-farm-2027",
     title: "Village Farm 2027",
     genre: "Simulation",

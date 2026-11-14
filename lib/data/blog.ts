@@ -13,12 +13,103 @@ export interface BlogPost {
   featured?: boolean;
   coverImage?: string;
   gallery?: { src: string; alt: string }[];
+  // True when the gallery images are phone-shaped (9:16) screenshots.
+  galleryPortrait?: boolean;
   cta?: { label: string; href: string };
   // Answers support "[text](url)" links.
   faqs?: { question: string; answer: string }[];
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: "football-league-27",
+    title: "Football League 27 Is Out Now on Google Play — Penalty Shootout Game",
+    excerpt:
+      "Take the penalty, make the save, win the trophy. Our new football penalty shootout game is live on Google Play for Android.",
+    content: `Football League 27 is a penalty shootout game where every shot and every save decides the match. Take your kick, watch the cinematic replay, then switch sides and defend the goal as the AI strikes back. Outscore your rival and take the trophy. It is out now on Google Play for Android.
+
+## How the penalty shootout works
+
+- Alternate between striker and goalkeeper every round
+- Take your shot: aim, power and placement
+- Enjoy the cinematic replay of your strike
+- Dive, stretch and save as the keeper
+- Outscore the AI to win the shootout
+
+## Climb the league tiers
+
+Start at the entry league and climb your way up through the ranks. Each tier has an in-game coin entry: pay to play, win to earn. Beat your rival to double your coins, then move up to higher tiers with bigger rewards.
+
+## Be the striker. Be the keeper.
+
+Half the game is scoring and the other half is stopping. Read your opponent's body language, pick the right side and pull off the match-winning save.
+
+## Simple controls
+
+Swipe to shoot and drag to dive. Easy to learn, hard to master. One perfectly placed shot into the top corner feels unbeatable.
+
+## Single-player focused
+
+No matchmaking and no waiting for opponents. It is just you against the AI, round after round, whenever you want to play.
+
+If you love football penalty games, soccer shootouts and goalkeeper games, this one is for you. [Download Football League 27 on Google Play](https://play.google.com/store/apps/details?id=com.Pgh.Football.league) and step up to the spot today.`,
+    category: "Launches",
+    author: "PlayGame Horizon Team",
+    authorRole: "Studio",
+    date: "2026-11-14",
+    readTime: 3,
+    image: "/images/blog/football-league-27/feature-graphic.jpg",
+    tags: ["Launch", "Football", "Penalty Shootout", "Android"],
+    featured: true,
+    coverImage: "/images/blog/football-league-27/feature-graphic.jpg",
+    cta: {
+      label: "Get it on Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.Pgh.Football.league",
+    },
+    galleryPortrait: true,
+    gallery: [
+      { src: "/images/blog/football-league-27/screenshot-1.jpg", alt: "Football League 27 penalty kick: aiming a shot at the target zones in the goal" },
+      { src: "/images/blog/football-league-27/screenshot-2.jpg", alt: "Football League 27 goalkeeper diving to save a penalty" },
+      { src: "/images/blog/football-league-27/screenshot-3.jpg", alt: "Football League 27 free kick against a wall of defenders" },
+      { src: "/images/blog/football-league-27/screenshot-4.jpg", alt: "Football League 27 level map with stars and a trophy" },
+      { src: "/images/blog/football-league-27/screenshot-5.jpg", alt: "Football League 27 goalkeeper stretching to stop the ball" },
+      { src: "/images/blog/football-league-27/screenshot-6.jpg", alt: "Football League 27 striker attempting an acrobatic kick in front of goal" },
+      { src: "/images/blog/football-league-27/screenshot-7.jpg", alt: "Football League 27 select country screen" },
+      { src: "/images/blog/football-league-27/screenshot-8.jpg", alt: "Football League 27 team lineup screen" },
+    ],
+    faqs: [
+      {
+        question: "What is Football League 27?",
+        answer:
+          "Football League 27 is a single-player penalty shootout game for Android. You take penalties as the striker, then defend the goal as the keeper, against smart AI opponents. See the full [Football League 27 game page](/games/football-league-27) for details.",
+      },
+      {
+        question: "Which platforms can I play it on?",
+        answer:
+          "Football League 27 is available for Android phones and tablets. [Download it on Google Play](https://play.google.com/store/apps/details?id=com.Pgh.Football.league).",
+      },
+      {
+        question: "Is there online multiplayer?",
+        answer:
+          "No. Football League 27 is single-player. There is no matchmaking and no waiting for opponents, you play against the AI whenever you want.",
+      },
+      {
+        question: "How does progression work?",
+        answer:
+          "You start in the entry league and climb through the tiers. Each tier has an in-game coin entry, and beating your rival wins you coins so you can move up to higher tiers with bigger rewards.",
+      },
+      {
+        question: "How do the controls work?",
+        answer:
+          "Swipe to shoot, choosing your aim, power and placement. As the goalkeeper, drag to dive and make the save.",
+      },
+      {
+        question: "Who makes Football League 27?",
+        answer:
+          "It is made by PlayGame Horizon, a small game studio in Lahore, Pakistan. Learn more [about the studio](/about) or see [our other games](/games).",
+      },
+    ],
+  },
   {
     id: "village-farm-2027",
     title: "Village Farm 2027 Is Out Now on Google Play",
