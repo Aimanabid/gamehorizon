@@ -1,20 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Search, Star, Monitor, Smartphone, Gamepad, X, Play, Calendar } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Search, Star, Play, Calendar } from "lucide-react";
 import CTASection from "@/components/home/CTASection";
-import { games, categories, type Game } from "@/lib/data/games";
-
-const platformIcons: Record<string, React.ElementType> = {
-  PC: Monitor,
-  Mac: Monitor,
-  Mobile: Smartphone,
-  PlayStation: Gamepad,
-  Xbox: Gamepad,
-  Console: Gamepad,
-  VR: Gamepad,
-};
+import { games, categories } from "@/lib/data/games";
 
 const statusConfig = {
   released: { label: "Released", className: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30" },
@@ -22,101 +13,9 @@ const statusConfig = {
   "in-development": { label: "In Development", className: "bg-blue-500/20 text-blue-400 border-blue-500/30" },
 };
 
-function GameModal({ game, onClose }: { game: Game; onClose: () => void }) {
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-        onClick={onClose}
-      >
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0, y: 24 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.9, opacity: 0, y: 24 }}
-          transition={{ type: "spring", damping: 20 }}
-          className="bg-brand-card border border-brand-primary/30 rounded-2xl max-w-2xl w-full overflow-hidden shadow-glow-lg"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Header image */}
-          <div className="h-52 relative overflow-hidden bg-brand-deep">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={game.image} alt={game.title} className="absolute inset-0 w-full h-full object-cover opacity-75" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-card via-brand-card/40 to-transparent" />
-            <div className="absolute inset-0 grid-pattern opacity-10" />
-            <button
-              onClick={onClose}
-              className="absolute top-4 right-4 w-9 h-9 rounded-lg bg-black/50 border border-white/10 flex items-center justify-center text-white hover:bg-black/70 transition"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <div className="absolute bottom-4 left-4">
-              <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${statusConfig[game.status].className}`}>
-                {statusConfig[game.status].label}
-              </span>
-            </div>
-          </div>
-
-          <div className="p-6">
-            <div className="flex items-start justify-between gap-4 mb-4">
-              <div>
-                <h2 className="font-display font-bold text-2xl text-white">{game.title}</h2>
-                <p className="text-brand-primary font-medium">{game.genre}</p>
-              </div>
-              {game.rating && (
-                <div className="flex items-center gap-1 flex-shrink-0">
-                  <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
-                  <span className="font-bold text-white text-lg">{game.rating}</span>
-                </div>
-              )}
-            </div>
-            <p className="text-slate-300 leading-relaxed mb-5">{game.longDescription}</p>
-            <div className="flex flex-wrap gap-2 mb-5">
-              {game.tags.map((tag) => (
-                <span key={tag} className="px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-medium">{tag}</span>
-              ))}
-            </div>
-            {game.storeUrl && (
-              <a
-                href={game.storeUrl}
-                target="_blank"
-                rel="noopener"
-                className="inline-flex items-center gap-2 mb-5 px-5 py-2.5 rounded-xl bg-brand-primary text-white text-sm font-semibold hover:bg-brand-royal transition-colors"
-              >
-                Get it on Google Play
-              </a>
-            )}
-            <div className="flex items-center justify-between border-t border-brand-border/30 pt-4">
-              <div className="flex gap-3">
-                {game.platform.map((p) => {
-                  const PIcon = platformIcons[p];
-                  return (
-                    <span key={p} className="flex items-center gap-1 text-xs text-slate-400">
-                      {PIcon && <PIcon className="w-3.5 h-3.5" />} {p}
-                    </span>
-                  );
-                })}
-              </div>
-              {game.releaseDate && (
-                <span className="flex items-center gap-1 text-xs text-slate-400">
-                  <Calendar className="w-3.5 h-3.5" />
-                  {game.releaseDate.startsWith("Q") ? game.releaseDate : new Date(game.releaseDate).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
-                </span>
-              )}
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-
 export default function GamesPage() {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedGame, setSelectedGame] = useState<Game | null>(null);
 
   const filtered = games.filter((g) => {
     const matchSearch = g.title.toLowerCase().includes(search.toLowerCase()) || g.genre.toLowerCase().includes(search.toLowerCase());
@@ -192,13 +91,12 @@ export default function GamesPage() {
               <h2 className="font-display font-bold text-2xl text-white mb-8">Released</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                 {released.map((game, i) => (
+                  <Link key={game.id} href={`/games/${game.id}`} id={game.id} className="block">
                   <motion.div
-                    key={game.id}
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07, duration: 0.5 }}
-                    onClick={() => setSelectedGame(game)}
                     className="group bg-brand-card border border-brand-border/40 rounded-xl overflow-hidden cursor-pointer hover:border-brand-primary/50 hover:-translate-y-1 hover:shadow-glow-sm transition-all duration-300"
                   >
                     <div className="h-44 relative overflow-hidden bg-brand-deep">
@@ -233,6 +131,7 @@ export default function GamesPage() {
                       </div>
                     </div>
                   </motion.div>
+                  </Link>
                 ))}
               </div>
             </>
@@ -243,13 +142,12 @@ export default function GamesPage() {
               <h2 className="font-display font-bold text-2xl text-white mb-8 mt-6">In Development</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                 {inDev.map((game, i) => (
+                  <Link key={game.id} href={`/games/${game.id}`} id={game.id} className="block">
                   <motion.div
-                    key={game.id}
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07, duration: 0.5 }}
-                    onClick={() => setSelectedGame(game)}
                     className="group relative bg-brand-card border border-blue-500/20 rounded-xl overflow-hidden cursor-pointer hover:border-blue-500/50 hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="absolute top-3 right-3 z-10">
@@ -274,6 +172,7 @@ export default function GamesPage() {
                       )}
                     </div>
                   </motion.div>
+                  </Link>
                 ))}
               </div>
             </>
@@ -284,13 +183,12 @@ export default function GamesPage() {
               <h2 id="coming-soon" className="font-display font-bold text-2xl text-white mb-8">Coming Soon</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {comingSoon.map((game, i) => (
+                  <Link key={game.id} href={`/games/${game.id}`} id={game.id} className="block">
                   <motion.div
-                    key={game.id}
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.07, duration: 0.5 }}
-                    onClick={() => setSelectedGame(game)}
                     className="group relative bg-brand-card border border-amber-500/20 rounded-xl overflow-hidden cursor-pointer hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="absolute top-3 right-3 z-10">
@@ -315,6 +213,7 @@ export default function GamesPage() {
                       )}
                     </div>
                   </motion.div>
+                  </Link>
                 ))}
               </div>
             </>
@@ -328,10 +227,6 @@ export default function GamesPage() {
           )}
         </div>
       </section>
-
-      {selectedGame && (
-        <GameModal game={selectedGame} onClose={() => setSelectedGame(null)} />
-      )}
 
       <CTASection />
     </div>

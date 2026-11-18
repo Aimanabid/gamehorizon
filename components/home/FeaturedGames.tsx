@@ -137,8 +137,7 @@ export default function FeaturedGames() {
                         </div>
                       )}
                       <Link
-                        href={game.storeUrl ?? `/games#${game.id}`}
-                        {...(game.storeUrl ? { target: "_blank", rel: "noopener" } : {})}
+                        href={`/games/${game.id}`}
                         className="flex items-center gap-1 text-xs font-semibold font-display tracking-wider text-brand-primary group-hover:text-brand-secondary group-hover:gap-2 transition-all"
                       >
                         VIEW <ArrowRight className="w-3 h-3" />

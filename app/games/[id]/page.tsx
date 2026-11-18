@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import {
   ArrowLeft,
   Calendar,
+  ChevronDown,
   Gamepad,
   Monitor,
   Smartphone,
@@ -12,10 +13,11 @@ import {
   ExternalLink,
 } from "lucide-react";
 import CTASection from "@/components/home/CTASection";
+import ImageCarousel from "@/components/ui/ImageCarousel";
+import { blogPosts } from "@/lib/data/blog";
 import { games, type Game } from "@/lib/data/games";
+import { BASE_URL, faqPageSchema, renderContent, renderInline } from "@/lib/richText";
 import { buildMetadata } from "@/lib/seo";
-
-const BASE_URL = "https://playgamehorizon.com";
 
 type Params = { id: string };
 
@@ -86,6 +88,8 @@ export default async function GameDetailPage({
 
   const related = games.filter((g) => g.id !== game.id && g.genre === game.genre).slice(0, 3);
   const formattedDate = formatDate(game.releaseDate);
+  const launchPost = game.launchPost ? blogPosts.find((p) => p.id === game.launchPost) : undefined;
+  const screenshots = launchPost?.gallery;
 
   const videoGameSchema = {
     "@context": "https://schema.org",
@@ -101,15 +105,8 @@ export default async function GameDetailPage({
       "@type": "Organization",
       name: "PlayGame Horizon (SMC-Private) Limited",
     },
-    ...(game.rating && {
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: game.rating,
-        bestRating: 5,
-        ratingCount: 100,
-      },
-    }),
   };
+  const faqJsonLd = game.faqs && faqPageSchema(game.faqs);
 
   return (
     <>
@@ -117,6 +114,9 @@ export default async function GameDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(videoGameSchema) }}
       />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
 
       <div className="pt-16">
         {/* Hero */}
@@ -207,6 +207,7 @@ export default async function GameDetailPage({
                 <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
                   {game.longDescription}
                 </p>
+                {game.content && <div className="space-y-4">{renderContent(game.content)}</div>}
 
                 <div className="pt-6 border-t border-brand-border/40">
                   <h3 className="font-display font-bold text-xl text-white mb-4">
@@ -226,8 +227,8 @@ export default async function GameDetailPage({
                         {game.status === "released"
                           ? "Live now and actively supported with updates."
                           : game.status === "in-development"
-                            ? "Currently in active development &mdash; follow us for build updates and early looks."
-                            : "On the roadmap &mdash; follow us to be the first to hear when it opens for playtests."}
+                            ? "Currently in active development — follow us for build updates and early looks."
+                            : "On the roadmap — follow us to be the first to hear when it opens for playtests."}
                       </span>
                     </li>
                     <li className="flex gap-3">
@@ -332,6 +333,35 @@ export default async function GameDetailPage({
             </div>
           </div>
         </section>
+
+        {screenshots && (
+          <section className="px-4 sm:px-6 lg:px-8 pb-16">
+            <h2 className="max-w-6xl mx-auto font-display font-bold text-2xl text-white mb-4">Screenshots</h2>
+            <ImageCarousel images={screenshots} portrait={launchPost?.galleryPortrait} />
+          </section>
+        )}
+
+        {game.faqs && (
+          <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" className="font-display font-bold text-2xl text-white mb-4">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-3 max-w-3xl">
+              {game.faqs.map((faq) => (
+                <details
+                  key={faq.question}
+                  className="group bg-brand-card border border-brand-border/40 rounded-xl open:border-brand-primary/40 transition-colors"
+                >
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-semibold text-white">
+                    <h3 className="text-base font-semibold">{faq.question}</h3>
+                    <ChevronDown className="w-5 h-5 shrink-0 text-brand-secondary transition-transform group-open:rotate-180" />
+                  </summary>
+                  <p className="px-5 pb-4 text-slate-300 leading-relaxed">{renderInline(faq.answer)}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Related games */}
         {related.length > 0 && (
