@@ -15,6 +15,8 @@ export interface BlogPost {
   gallery?: { src: string; alt: string }[];
   // True when the gallery images are phone-shaped (9:16) screenshots.
   galleryPortrait?: boolean;
+  // YouTube video ID (Shorts are 9:16) shown as an embedded player.
+  videoId?: string;
   cta?: { label: string; href: string };
   // Answers support "[text](url)" links.
   faqs?: { question: string; answer: string }[];
@@ -66,6 +68,7 @@ If you love football penalty games, soccer shootouts and goalkeeper games, this 
       label: "Get it on Google Play",
       href: "https://play.google.com/store/apps/details?id=com.Pgh.Football.league",
     },
+    videoId: "vlpD_Yt_rSc",
     galleryPortrait: true,
     gallery: [
       { src: "/images/blog/football-league-27/screenshot-1.jpg", alt: "Football League 27 penalty kick: aiming a shot at the target zones in the goal" },

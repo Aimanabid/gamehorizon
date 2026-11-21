@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, ChevronDown, Clock, ExternalLink } from "lucide-react";
 import ImageCarousel from "@/components/ui/ImageCarousel";
+import VideoPlayer from "@/components/ui/VideoPlayer";
 import { blogPosts } from "@/lib/data/blog";
 import { buildMetadata } from "@/lib/seo";
 import { BASE_URL, faqPageSchema, renderContent, renderInline } from "@/lib/richText";
@@ -48,11 +49,25 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
     mainEntityOfPage: `${BASE_URL}/blog/${post.id}`,
   };
 
+  const videoJsonLd = post.videoId && {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: `${post.title} intro video`,
+    description: post.excerpt,
+    thumbnailUrl: [`https://i.ytimg.com/vi/${post.videoId}/hqdefault.jpg`, `${BASE_URL}${post.image}`],
+    uploadDate: post.date,
+    embedUrl: `https://www.youtube.com/embed/${post.videoId}`,
+    contentUrl: `https://youtube.com/shorts/${post.videoId}`,
+  };
+
   const faqJsonLd = post.faqs && faqPageSchema(post.faqs);
 
   return (
     <div className="pt-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      {videoJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
+      )}
       {faqJsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
@@ -115,6 +130,27 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           </a>
         )}
       </article>
+      {post.videoId && (
+        <section className="px-4 sm:px-6 lg:px-8 pt-4 pb-10">
+          <h2 className="max-w-3xl mx-auto font-display font-bold text-2xl text-white mb-4">Watch the intro video</h2>
+          <VideoPlayer
+            videoId={post.videoId}
+            thumbnail={post.coverImage ?? post.image}
+            title={`${post.title} intro video`}
+            className="max-w-2xl mx-auto"
+          />
+          <p className="max-w-3xl mx-auto text-center text-sm text-slate-400 mt-3">
+            <a
+              href={`https://youtube.com/shorts/${post.videoId}`}
+              target="_blank"
+              rel="noopener"
+              className="text-brand-secondary underline underline-offset-2 hover:text-white transition-colors"
+            >
+              Watch on YouTube
+            </a>
+          </p>
+        </section>
+      )}
       {post.gallery && (
         <section className="px-4 sm:px-6 lg:px-8 pb-4">
           <h2 className="max-w-3xl mx-auto font-display font-bold text-2xl text-white mb-4">Screenshots</h2>

@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import CTASection from "@/components/home/CTASection";
 import ImageCarousel from "@/components/ui/ImageCarousel";
+import VideoPlayer from "@/components/ui/VideoPlayer";
 import { blogPosts } from "@/lib/data/blog";
 import { games, type Game } from "@/lib/data/games";
 import { BASE_URL, faqPageSchema, renderContent, renderInline } from "@/lib/richText";
@@ -105,6 +106,17 @@ export default async function GameDetailPage({
       "@type": "Organization",
       name: "PlayGame Horizon (SMC-Private) Limited",
     },
+    ...(game.trailer && {
+      video: {
+        "@type": "VideoObject",
+        name: `${game.title} intro video`,
+        description: game.description,
+        thumbnailUrl: `https://i.ytimg.com/vi/${game.trailer}/hqdefault.jpg`,
+        uploadDate: game.releaseDate,
+        embedUrl: `https://www.youtube.com/embed/${game.trailer}`,
+        contentUrl: `https://youtube.com/shorts/${game.trailer}`,
+      },
+    }),
   };
   const faqJsonLd = game.faqs && faqPageSchema(game.faqs);
 
@@ -208,6 +220,19 @@ export default async function GameDetailPage({
                   {game.longDescription}
                 </p>
                 {game.content && <div className="space-y-4">{renderContent(game.content)}</div>}
+
+                {game.trailer && (
+                  <div className="pt-6 border-t border-brand-border/40">
+                    <h3 className="font-display font-bold text-xl text-white mb-4">
+                      Watch the intro
+                    </h3>
+                    <VideoPlayer
+                      videoId={game.trailer}
+                      thumbnail={game.image}
+                      title={`${game.title} intro video`}
+                    />
+                  </div>
+                )}
 
                 <div className="pt-6 border-t border-brand-border/40">
                   <h3 className="font-display font-bold text-xl text-white mb-4">

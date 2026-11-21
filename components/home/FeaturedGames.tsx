@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Star, Monitor, Smartphone, Gamepad, ArrowRight, type LucideIcon } from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
+import { VideoModalButton } from "@/components/ui/VideoPlayer";
 import { games } from "@/lib/data/games";
 
 const platformIcons: Record<string, LucideIcon> = {
@@ -135,6 +136,9 @@ export default function FeaturedGames() {
                           <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
                           <span className="text-white font-bold text-sm font-display">{game.rating}</span>
                         </div>
+                      )}
+                      {game.trailer && (
+                        <VideoModalButton videoId={game.trailer} title={`${game.title} intro video`} />
                       )}
                       <Link
                         href={`/games/${game.id}`}
