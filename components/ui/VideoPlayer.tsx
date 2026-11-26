@@ -26,18 +26,21 @@ function PlayButton({ size = "lg" }: { size?: "sm" | "lg" }) {
 /**
  * Click-to-play YouTube player. Shows our own thumbnail and only loads the
  * YouTube iframe (with autoplay) after the visitor clicks, so the page stays fast.
- * The thumbnail is landscape; the video (a Short) is 9:16 and is centred in the same box.
+ * The thumbnail is landscape. A Short is 9:16 and is centred in the same box;
+ * pass `landscape` for a regular 16:9 video, which fills it.
  */
 export default function VideoPlayer({
   videoId,
   thumbnail,
   title,
   className = "",
+  landscape = false,
 }: {
   videoId: string;
   thumbnail: string;
   title: string;
   className?: string;
+  landscape?: boolean;
 }) {
   const [playing, setPlaying] = useState(false);
 
@@ -52,7 +55,11 @@ export default function VideoPlayer({
           allow={iframeAllow}
           allowFullScreen
           referrerPolicy="strict-origin-when-cross-origin"
-          className="absolute inset-y-0 left-1/2 -translate-x-1/2 h-full aspect-[9/16] border-0"
+          className={
+            landscape
+              ? "absolute inset-0 w-full h-full border-0"
+              : "absolute inset-y-0 left-1/2 -translate-x-1/2 h-full aspect-[9/16] border-0"
+          }
         />
       ) : (
         <button
@@ -86,10 +93,12 @@ export function VideoModalButton({
   videoId,
   title,
   className = "",
+  landscape = false,
 }: {
   videoId: string;
   title: string;
   className?: string;
+  landscape?: boolean;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -124,7 +133,9 @@ export function VideoModalButton({
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative h-[85vh] max-h-[720px] aspect-[9/16] max-w-full rounded-2xl overflow-hidden bg-black border border-brand-border/40"
+            className={`relative rounded-2xl overflow-hidden bg-black border border-brand-border/40 ${
+              landscape ? "w-full max-w-5xl aspect-video" : "h-[85vh] max-h-[720px] aspect-[9/16] max-w-full"
+            }`}
           >
             <iframe
               src={embedUrl(videoId)}

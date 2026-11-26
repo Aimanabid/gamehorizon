@@ -17,12 +17,86 @@ export interface BlogPost {
   galleryPortrait?: boolean;
   // YouTube video ID (Shorts are 9:16) shown as an embedded player.
   videoId?: string;
+  // True for a regular 16:9 video rather than a Short.
+  videoLandscape?: boolean;
   cta?: { label: string; href: string };
   // Answers support "[text](url)" links.
   faqs?: { question: string; answer: string }[];
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    id: "dessert-crush",
+    title: "Dessert Crush: Match 3 Puzzle Is Out Now on Google Play",
+    excerpt:
+      "Swap, match and crush your way through cakes, cupcakes and cookies. Our new match-3 puzzle game is live on Android.",
+    content: `Dessert Crush: Match 3 Puzzle is our new puzzle game, full of cakes, cookies, cupcakes and other tasty treats. Swap neighboring desserts, line up three or more of the same kind and keep the sweet chain going. It is out now on Google Play for Android.
+
+## How to play
+
+- Swipe to swap neighboring desserts
+- Match three or more of the same treat to clear them
+- Plan your moves and clear each puzzle board
+- Move on to the next level
+
+## What is on the menu
+
+- Classic match-3 gameplay with a dessert twist
+- Dessert combos and boosters for the tricky moments
+- Blocks to blast and boards in many shapes
+- A colorful level map to travel through
+- Simple one-finger controls for all ages
+
+## Play at your own pace
+
+Dessert Crush is easy to pick up and a relaxing way to spend a few minutes. Play one level on a short break, or keep going and see how far along the map you can get.
+
+## Free to download
+
+The game is free to download and is rated Everyone. It contains ads and offers in-app purchases.
+
+If you enjoy match-3 games, sweet puzzles or a relaxing dessert puzzle to unwind with, this one is for you. [Download Dessert Crush on Google Play](https://play.google.com/store/apps/details?id=com.pgh.dessert.crush.puzzel&hl=en&gl=US) and start matching today.`,
+    category: "Launches",
+    author: "PlayGame Horizon Team",
+    authorRole: "Studio",
+    date: "2026-11-26",
+    readTime: 2,
+    image: "/images/blog/dessert-crush/feature-graphic.jpg",
+    tags: ["Launch", "Match 3", "Puzzle", "Android"],
+    featured: true,
+    coverImage: "/images/blog/dessert-crush/feature-graphic.jpg",
+    cta: {
+      label: "Get it on Google Play",
+      href: "https://play.google.com/store/apps/details?id=com.pgh.dessert.crush.puzzel&hl=en&gl=US",
+    },
+    videoId: "EbdfjK8raK0",
+    videoLandscape: true,
+    galleryPortrait: true,
+    gallery: [
+      { src: "/images/blog/dessert-crush/screenshot-1.jpg", alt: "Dessert Crush: a cupcake combo blasting across the board" },
+      { src: "/images/blog/dessert-crush/screenshot-2.jpg", alt: "Dessert Crush: fish boosters swimming across the puzzle board" },
+      { src: "/images/blog/dessert-crush/screenshot-3.jpg", alt: "Dessert Crush: waffle and chocolate blocks around a match-3 board" },
+      { src: "/images/blog/dessert-crush/screenshot-4.jpg", alt: "Dessert Crush: a shaped challenge level with cakes and candies" },
+      { src: "/images/blog/dessert-crush/screenshot-5.jpg", alt: "Dessert Crush: a burst booster clearing desserts in the dessert world" },
+      { src: "/images/blog/dessert-crush/screenshot-6.jpg", alt: "Dessert Crush: level screen with score, moves, goal and boosters" },
+      { src: "/images/blog/dessert-crush/screenshot-7.jpg", alt: "Dessert Crush: a level with frozen desserts and a strawberry booster" },
+      { src: "/images/blog/dessert-crush/screenshot-8.jpg", alt: "Dessert Crush: level map through a candy village with a castle" },
+    ],
+    faqs: [
+      {
+        question: "What is Dessert Crush: Match 3 Puzzle?",
+        answer: "It is a dessert-themed match-3 puzzle game for Android. See the full [Dessert Crush game page](/games/dessert-crush) for details.",
+      },
+      {
+        question: "Is it free?",
+        answer: "It is free to download from [Google Play](https://play.google.com/store/apps/details?id=com.pgh.dessert.crush.puzzel&hl=en&gl=US). The game contains ads and offers in-app purchases.",
+      },
+      {
+        question: "Who makes Dessert Crush?",
+        answer: "It is made by PlayGame Horizon, a small game studio in Lahore, Pakistan. Learn more [about the studio](/about) or see [our other games](/games).",
+      },
+    ],
+  },
   {
     id: "football-league-27",
     title: "Football League 27 Is Out Now on Google Play — Penalty Shootout Game",

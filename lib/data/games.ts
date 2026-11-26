@@ -11,6 +11,8 @@ export interface Game {
   rating?: number;
   tags: string[];
   trailer?: string;
+  // True for a regular 16:9 video; otherwise the trailer is a 9:16 Short.
+  trailerLandscape?: boolean;
   storeUrl?: string;
   // Full game-page article: blank-line blocks, "## " headings, "- " lists,
   // "[text](url)" links (same format as blog posts).
@@ -22,6 +24,68 @@ export interface Game {
 }
 
 export const games: Game[] = [
+  {
+    id: "dessert-crush",
+    title: "Dessert Crush: Match 3 Puzzle",
+    genre: "Puzzle",
+    platform: ["Mobile"],
+    status: "released",
+    description: "Swap and match cakes, cupcakes and cookies in our sweet new match-3 puzzle!",
+    longDescription:
+      "Dessert Crush: Match 3 Puzzle is a colorful puzzle game full of cakes, cookies, cupcakes and other tasty treats. Swap neighboring desserts to line up three or more of a kind, clear them from the board and move on to the next level. Available on Android.",
+    image: "/images/blog/dessert-crush/feature-graphic.jpg",
+    releaseDate: "2026-11-26",
+    trailer: "EbdfjK8raK0",
+    trailerLandscape: true,
+    tags: ["Puzzle", "Match 3", "Casual", "Android"],
+    storeUrl: "https://play.google.com/store/apps/details?id=com.pgh.dessert.crush.puzzel&hl=en&gl=US",
+    launchPost: "dessert-crush",
+    content: `## How to play
+
+- Swipe to swap neighboring desserts.
+- Match three or more of the same treat to clear them from the board.
+- Plan your moves and clear each puzzle.
+- Move on to the next level on the map.
+
+## Combos and boosters
+
+Matching more than the basics pays off. Set off dessert combos that sweep across the board, and use boosters to get through the trickier layouts.
+
+## Sweet challenges
+
+Boards come in many shapes, with blocks to blast along the way. Look at the whole board before you move, because the best match is not always the first one you see.
+
+## Tips
+
+- Look for matches of four or more before settling for three.
+- Try matches near the bottom of the board. Falling desserts can create extra matches.
+- Save your boosters for the levels where you really need them.
+- Work on the blocks early so you have more room later.
+
+## Free to download
+
+Dessert Crush is free to download on Android. The game contains ads and offers in-app purchases.
+
+Read the [launch announcement](/blog/dessert-crush) for more, or [download Dessert Crush on Google Play](https://play.google.com/store/apps/details?id=com.pgh.dessert.crush.puzzel&hl=en&gl=US).`,
+    faqs: [
+      {
+        question: "What kind of game is Dessert Crush?",
+        answer: "It is a match-3 puzzle game. You swap neighboring desserts to line up three or more of the same kind and clear them from the board.",
+      },
+      {
+        question: "Is Dessert Crush free?",
+        answer: "It is free to download. The game contains ads and offers in-app purchases.",
+      },
+      {
+        question: "What age rating does it have?",
+        answer: "It is rated Everyone on Google Play. Note that it has ads and in-app purchases.",
+      },
+      {
+        question: "Where can I download it?",
+        answer: "Dessert Crush is available for Android on [Google Play](https://play.google.com/store/apps/details?id=com.pgh.dessert.crush.puzzel&hl=en&gl=US).",
+      },
+    ],
+  },
   {
     id: "football-league-27",
     title: "Football League 27",
