@@ -138,7 +138,7 @@ export default function FeaturedGames() {
                         </div>
                       )}
                       {game.trailer && (
-                        <VideoModalButton videoId={game.trailer} title={`${game.title} intro video`} />
+                        <VideoModalButton videoId={game.trailer} landscape={game.trailerLandscape} title={`${game.title} intro video`} />
                       )}
                       <Link
                         href={`/games/${game.id}`}

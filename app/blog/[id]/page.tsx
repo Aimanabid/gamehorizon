@@ -57,7 +57,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
     thumbnailUrl: [`https://i.ytimg.com/vi/${post.videoId}/hqdefault.jpg`, `${BASE_URL}${post.image}`],
     uploadDate: post.date,
     embedUrl: `https://www.youtube.com/embed/${post.videoId}`,
-    contentUrl: `https://youtube.com/shorts/${post.videoId}`,
+    contentUrl: post.videoLandscape ? `https://www.youtube.com/watch?v=${post.videoId}` : `https://youtube.com/shorts/${post.videoId}`,
   };
 
   const faqJsonLd = post.faqs && faqPageSchema(post.faqs);
@@ -135,13 +135,14 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           <h2 className="max-w-3xl mx-auto font-display font-bold text-2xl text-white mb-4">Watch the intro video</h2>
           <VideoPlayer
             videoId={post.videoId}
+            landscape={post.videoLandscape}
             thumbnail={post.coverImage ?? post.image}
             title={`${post.title} intro video`}
             className="max-w-2xl mx-auto"
           />
           <p className="max-w-3xl mx-auto text-center text-sm text-slate-400 mt-3">
             <a
-              href={`https://youtube.com/shorts/${post.videoId}`}
+              href={post.videoLandscape ? `https://www.youtube.com/watch?v=${post.videoId}` : `https://youtube.com/shorts/${post.videoId}`}
               target="_blank"
               rel="noopener"
               className="text-brand-secondary underline underline-offset-2 hover:text-white transition-colors"

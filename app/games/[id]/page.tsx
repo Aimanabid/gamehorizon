@@ -114,7 +114,9 @@ export default async function GameDetailPage({
         thumbnailUrl: `https://i.ytimg.com/vi/${game.trailer}/hqdefault.jpg`,
         uploadDate: game.releaseDate,
         embedUrl: `https://www.youtube.com/embed/${game.trailer}`,
-        contentUrl: `https://youtube.com/shorts/${game.trailer}`,
+        contentUrl: game.trailerLandscape
+          ? `https://www.youtube.com/watch?v=${game.trailer}`
+          : `https://youtube.com/shorts/${game.trailer}`,
       },
     }),
   };
@@ -228,6 +230,7 @@ export default async function GameDetailPage({
                     </h3>
                     <VideoPlayer
                       videoId={game.trailer}
+                      landscape={game.trailerLandscape}
                       thumbnail={game.image}
                       title={`${game.title} intro video`}
                     />
