@@ -26,6 +26,48 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "carrom-disc-pre-registration",
+    title: "Carrom Disc: Pre-Registration Is Open on Google Play",
+    excerpt:
+      "Our carrom board game for Android is on the way. Here is what is in it, plus a quick refresher on how carrom is played.",
+    content: `Our next game is [Carrom Disc: Board Game 2027](/games/carrom-disc), a carrom board for your Android phone. It is not out yet, but pre-registration is open.
+
+## A quick refresher on carrom
+
+Carrom is played on a square board with a pocket in each corner. Players flick a heavier disc, the striker, to knock smaller pieces into the pockets. A standard set has nine white pieces, nine black pieces and one red piece called the queen. Each player goes after one colour.
+
+The queen is the interesting part. Pocketing it is not enough: you also have to cover it by pocketing one of your own pieces on the following shot. If you miss, the queen goes back on the board. Mistakes such as pocketing the striker are fouls and carry a penalty.
+
+## What is in the game
+
+- Three game modes: Disc Pool, Carrom and Freestyle
+- Play against the computer, or local two-player on one device
+- Levels with up to three stars each, including trick-shot challenges
+- Strikers to collect and upgrade, plus pucks and board themes
+- Drag-to-aim, release-to-shoot controls
+
+## Pre-register
+
+[Pre-register on Google Play](https://play.google.com/store/apps/details?id=com.pgh.carom.disc.board.game) and you will be told when the game launches. It is rated Everyone and contains ads.`,
+    category: "Announcements",
+    author: "PlayGame Horizon Team",
+    authorRole: "Studio",
+    date: "2026-11-28",
+    readTime: 2,
+    image: "/images/blog/carrom-disc/feature-graphic.jpg",
+    tags: ["Carrom", "Board Game", "Pre-registration", "Android"],
+    coverImage: "/images/blog/carrom-disc/feature-graphic.jpg",
+    cta: { label: "Pre-register on Google Play", href: "https://play.google.com/store/apps/details?id=com.pgh.carom.disc.board.game" },
+    galleryPortrait: true,
+    gallery: [
+      { src: "/images/blog/carrom-disc/screenshot-1.jpg", alt: "Carrom Disc menu: play vs computer, play local or play levels" },
+      { src: "/images/blog/carrom-disc/screenshot-2.jpg", alt: "Carrom Disc mode selection: Disc Pool, Carrom and Freestyle" },
+      { src: "/images/blog/carrom-disc/screenshot-3.jpg", alt: "Carrom Disc level selection with star ratings" },
+      { src: "/images/blog/carrom-disc/screenshot-4.jpg", alt: "A collection of striker designs in Carrom Disc" },
+      { src: "/images/blog/carrom-disc/screenshot-5.jpg", alt: "Carrom Disc striker upgrade screen" },
+    ],
+  },
+  {
     id: "dessert-crush-guide",
     title: "Dessert Crush Guide: How to Plan Better Moves",
     excerpt:

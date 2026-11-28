@@ -41,8 +41,8 @@ export default function GamesPage() {
               Our <span className="text-gradient">Games</span>
             </h1>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-              Farming, football and match-3 puzzles — the games we&apos;ve released at
-              PlayGame Horizon.
+              Farming, football and match-3 puzzles — the games from PlayGame Horizon,
+              out now and on the way.
             </p>
           </motion.div>
         </div>

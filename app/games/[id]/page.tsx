@@ -91,6 +91,7 @@ export default async function GameDetailPage({
   const formattedDate = formatDate(game.releaseDate);
   const launchPost = game.launchPost ? blogPosts.find((p) => p.id === game.launchPost) : undefined;
   const screenshots = launchPost?.gallery;
+  const preRegister = game.status === "coming-soon" && !!game.storeUrl;
 
   const videoGameSchema = {
     "@context": "https://schema.org",
@@ -203,7 +204,7 @@ export default async function GameDetailPage({
                     rel="noopener"
                     className="inline-flex items-center gap-2 mt-7 px-6 py-3 rounded-xl bg-blue-gradient text-white font-semibold hover:opacity-90 transition-opacity shadow-glow-sm"
                   >
-                    Get it on Google Play
+                    {preRegister ? "Pre-register on Google Play" : "Get it on Google Play"}
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 )}
@@ -256,7 +257,9 @@ export default async function GameDetailPage({
                           ? "Live now and actively supported with updates."
                           : game.status === "in-development"
                             ? "Currently in active development — follow us for build updates and early looks."
-                            : "On the roadmap — follow us to be the first to hear when it opens for playtests."}
+                            : preRegister
+                              ? "Coming soon — pre-register on Google Play to hear when it launches."
+                              : "On the roadmap — follow us to be the first to hear when it opens for playtests."}
                       </span>
                     </li>
                     <li className="flex gap-3">
@@ -272,10 +275,12 @@ export default async function GameDetailPage({
                 {game.storeUrl && (
                   <div className="mt-8 rounded-2xl bg-glass border border-brand-primary/20 p-6">
                     <h3 className="font-display font-bold text-xl text-white mb-2">
-                      Play {game.title} today
+                      {preRegister ? `Pre-register for ${game.title}` : `Play ${game.title} today`}
                     </h3>
                     <p className="text-slate-400 text-sm mb-4">
-                      Available now on Google Play &mdash; free to download.
+                      {preRegister
+                        ? "Not released yet. Pre-register to be told when it launches."
+                        : "Available now on Google Play — free to download."}
                     </p>
                     <a
                       href={game.storeUrl}

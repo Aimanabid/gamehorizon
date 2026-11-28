@@ -227,6 +227,49 @@ Read the [launch announcement](/blog/village-farm-2027) for more, or [download V
       },
     ],
   },
+  {
+    id: "carrom-disc",
+    title: "Carrom Disc: Board Game 2027",
+    genre: "Board",
+    platform: ["Mobile"],
+    status: "coming-soon",
+    description: "The classic carrom board on your phone. Pre-registration is open on Google Play.",
+    longDescription:
+      "Carrom Disc: Board Game 2027 brings the tabletop game of carrom to Android. Drag to aim, release to shoot and send your pieces into the corner pockets. It is not released yet, and you can pre-register on Google Play.",
+    image: "/images/blog/carrom-disc/feature-graphic.jpg",
+    tags: ["Board", "Carrom", "Casual", "Android"],
+    storeUrl: "https://play.google.com/store/apps/details?id=com.pgh.carom.disc.board.game",
+    launchPost: "carrom-disc-pre-registration",
+    content: `## Ways to play
+
+- Play against the computer and practise at your own pace.
+- Play local two-player on one device, passing the phone between turns.
+- Work through levels, including trick-shot challenges, and earn up to three stars on each.
+
+## Modes, strikers and boards
+
+You can choose between three game modes: Disc Pool, Carrom and Freestyle. There is also a collection of strikers to pick from and upgrade, along with different pucks and board themes.
+
+## Controls
+
+Drag to aim and release to shoot. The rules follow the traditional game, including covering the queen, fouls and penalties.
+
+Read the [pre-registration announcement](/blog/carrom-disc-pre-registration) for a quick refresher on carrom, or [pre-register on Google Play](https://play.google.com/store/apps/details?id=com.pgh.carom.disc.board.game).`,
+    faqs: [
+      {
+        question: "Is Carrom Disc out yet?",
+        answer: "Not yet. You can [pre-register on Google Play](https://play.google.com/store/apps/details?id=com.pgh.carom.disc.board.game) to be told when it launches.",
+      },
+      {
+        question: "Can two people play on one phone?",
+        answer: "Yes. The local two-player mode lets you take turns on the same device.",
+      },
+      {
+        question: "Will it have ads?",
+        answer: "The Google Play listing states that the game contains ads.",
+      },
+    ],
+  },
 ];
 
-export const categories = ["All", "Simulation", "Sports", "Puzzle"];
+export const categories = ["All", "Simulation", "Sports", "Puzzle", "Board"];

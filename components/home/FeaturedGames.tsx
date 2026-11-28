@@ -38,6 +38,7 @@ function PlatformBadge({ platform }: { platform: string }) {
 
 export default function FeaturedGames() {
   const featured = games.slice(0, 4);
+  const wideFirst = featured.length % 2 === 1;
 
   return (
     <section className="py-24 relative">
@@ -55,7 +56,7 @@ export default function FeaturedGames() {
           label="Our Portfolio"
           title="Featured "
           highlight="Games"
-          description="Farming, football and match-3 puzzles: our games on Google Play."
+          description="Farming, football, match-3 puzzles and carrom."
         />
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -70,14 +71,14 @@ export default function FeaturedGames() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className={`group relative overflow-hidden bg-brand-card border border-brand-border/50 rounded-2xl
                   hover:border-brand-primary/60 transition-all duration-300 hover:shadow-glow
-                  ${i === 0 ? "md:col-span-2 h-80" : "h-64"}`}
+                  ${wideFirst && i === 0 ? "md:col-span-2 h-80" : "h-64"}`}
               >
                 {/* Game art */}
                 <Image
                   src={game.image}
                   alt={game.title}
                   fill
-                  sizes={i === 0 ? "(max-width: 768px) 100vw, 1200px" : "(max-width: 768px) 100vw, 600px"}
+                  sizes={wideFirst && i === 0 ? "(max-width: 768px) 100vw, 1200px" : "(max-width: 768px) 100vw, 600px"}
                   quality={70}
                   unoptimized={game.image.endsWith(".svg")}
                   className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-80 transition-opacity duration-500"
@@ -115,7 +116,7 @@ export default function FeaturedGames() {
 
                   <div className="flex items-end justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className={`font-display font-bold text-white mb-1 group-hover:text-brand-secondary transition-colors ${i === 0 ? "text-2xl sm:text-3xl" : "text-xl"}`}>
+                      <h3 className={`font-display font-bold text-white mb-1 group-hover:text-brand-secondary transition-colors ${wideFirst && i === 0 ? "text-2xl sm:text-3xl" : "text-xl"}`}>
                         {game.title}
                       </h3>
                       <p className="text-slate-300 text-sm mb-3 line-clamp-2 leading-relaxed">
