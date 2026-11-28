@@ -41,8 +41,8 @@ export default function GamesPage() {
               Our <span className="text-gradient">Games</span>
             </h1>
             <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-              From cozy puzzles to local-flavor arcade hits — these are the titles we&apos;re
-              building, releasing, and dreaming up at PlayGame Horizon.
+              Farming, football and match-3 puzzles — the games we&apos;ve released at
+              PlayGame Horizon.
             </p>
           </motion.div>
         </div>

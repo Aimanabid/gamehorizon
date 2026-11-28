@@ -4,7 +4,6 @@ import StatsSection from "@/components/home/StatsSection";
 import FeaturedGames from "@/components/home/FeaturedGames";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import LatestNews from "@/components/home/LatestNews";
-import Testimonials from "@/components/home/Testimonials";
 import CTASection from "@/components/home/CTASection";
 
 export const metadata: Metadata = {
@@ -34,7 +33,6 @@ export default function HomePage() {
       <FeaturedGames />
       <WhyChooseUs />
       <LatestNews />
-      <Testimonials />
       <CTASection />
     </>
   );

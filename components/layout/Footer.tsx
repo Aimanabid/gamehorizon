@@ -62,7 +62,7 @@ export default function Footer() {
             <div className="flex-1">
               <h3 className="font-display font-bold text-xl text-white mb-1">Stay updated with PlayGame Horizon</h3>
               <p className="text-slate-400 text-sm">
-                Project launches, dev updates, and company news — straight to your inbox.
+                Project launches, dev updates, and company news. Subscribe opens your email app; send the message to join.
               </p>
             </div>
             <form className="flex gap-2 w-full lg:w-auto" onSubmit={handleSubscribe}>
@@ -79,7 +79,7 @@ export default function Footer() {
                 className="px-5 py-2.5 bg-blue-gradient text-white text-sm font-semibold rounded-lg hover:opacity-90 transition flex items-center gap-1.5 whitespace-nowrap"
               >
                 {subscribed ? <CheckCircle2 className="w-4 h-4" /> : <Send className="w-4 h-4" />}
-                {subscribed ? "Sent" : "Subscribe"}
+                {subscribed ? "Check your email app" : "Subscribe"}
               </button>
             </form>
           </div>

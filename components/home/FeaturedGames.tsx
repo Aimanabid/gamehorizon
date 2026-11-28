@@ -55,7 +55,7 @@ export default function FeaturedGames() {
           label="Our Portfolio"
           title="Featured "
           highlight="Games"
-          description="From cozy puzzles to local-flavor arcade hits — these are the projects shaping PlayGame Horizon's early catalog."
+          description="Farming, football and match-3 puzzles: our games on Google Play."
         />
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5">

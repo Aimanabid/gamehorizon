@@ -26,6 +26,180 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "dessert-crush-guide",
+    title: "Dessert Crush Guide: How to Plan Better Moves",
+    excerpt:
+      "Read the goal, watch your move count and set up bigger chains. A practical guide to clearing more Dessert Crush levels.",
+    content: `Swapping the first match you see will carry you through an easy board. Later boards ask for more thought. This guide covers habits that help in [Dessert Crush](/games/dessert-crush) and in match-3 puzzles generally.
+
+## Read the top of the screen first
+
+Before your first swap, look at the panel above the board: the goal, the number of moves left and the star meter next to your score. The goal tells you what actually finishes the level. A move that scores points but does nothing for the goal still costs you a move.
+
+## Spend moves on the goal
+
+If a level asks you to collect a particular dessert, look for matches that include it, or that bring others of its kind into line. When your moves run low, stop building elaborate setups and take whatever moves the goal forward.
+
+## Start low when you can
+
+Desserts fall to fill the gaps you leave. A match near the bottom of the board shifts the pieces above it, which gives you a good chance of free follow-up matches. A match at the very top moves very little.
+
+## Use high matches to stay in control
+
+The reverse is useful too. When you have spotted a promising arrangement near the bottom and do not want to disturb it, make your next match higher up, so the pieces you are saving stay where they are.
+
+## Look for four or more
+
+Before settling for three, scan for a line of four or five, or for two lines that cross. Bigger matches are worth setting up when you have moves to spare.
+
+## Mind the shape of the board
+
+Many boards are not simple squares. Gaps, narrow arms and separate sections limit which pieces can ever meet. Corners and thin sections are the hardest places to make a match, so take an opportunity there when one appears.
+
+## Deal with blocks early
+
+Frozen pieces and other blocks take up space and cut down your options. Clearing them early usually makes every later move easier. If you leave them to the end, you may have few moves left to reach them.
+
+## Save boosters for the right moment
+
+The buttons under the board are your boosters, each with a limited count. It is tempting to use one as soon as you are stuck. First check whether an ordinary swap elsewhere would change the board enough to open up the spot you want. Keep boosters for the situation a normal move cannot solve, such as a single awkward piece standing between you and the goal.
+
+## When a level keeps beating you
+
+If a level beats you, change one thing on the next attempt: try clearing the blocks first, or start from the bottom, and see which helps. A short break often helps as well.
+
+Dessert Crush is free to download and contains ads and in-app purchases. [Get it on Google Play](https://play.google.com/store/apps/details?id=com.pgh.dessert.crush.puzzel&hl=en&gl=US).`,
+    category: "Guides",
+    author: "PlayGame Horizon Team",
+    authorRole: "Studio",
+    date: "2026-11-28",
+    readTime: 2,
+    image: "/images/blog/dessert-crush/feature-graphic.jpg",
+    tags: ["Guide","Match 3","Puzzle"],
+    coverImage: "/images/blog/dessert-crush/feature-graphic.jpg",
+    galleryPortrait: true,
+    gallery: [
+      { src: "/images/blog/dessert-crush/screenshot-6.jpg", alt: "Dessert Crush level screen showing the score, moves left, goal and boosters" },
+      { src: "/images/blog/dessert-crush/screenshot-7.jpg", alt: "Dessert Crush level with frozen blocks beside the main board" },
+      { src: "/images/blog/dessert-crush/screenshot-2.jpg", alt: "Dessert Crush boosters moving across a shaped puzzle board" },
+    ],
+  },
+  {
+    id: "football-league-27-penalty-guide",
+    title: "Football League 27 Penalty Guide: Score More, Save More",
+    excerpt:
+      "Placement, power and patience. How to take better penalties and make more saves in Football League 27.",
+    content: `A shootout in [Football League 27](/games/football-league-27) has two halves: you shoot, then you keep goal. Winning means being good enough at both. Here is how to approach each one.
+
+## Shooting: get the swipe right
+
+Your swipe sets the direction, length and speed of the shot. Because all three come from one motion, it pays to practise a swipe you can repeat. Change one thing at a time, so you can tell what made the ball go where it did.
+
+## Aim away from the keeper
+
+A shot down the middle gives the keeper the least to do. The areas close to the posts take longer to reach. The top corners are the hardest of all to save, but they also leave the smallest margin for error.
+
+## Accuracy before power
+
+A hard shot that misses the goal is worth nothing. Start with controlled shots that land on target, then add speed once you can place the ball reliably.
+
+## Mix up your placement
+
+If you shoot to the same side every time, you become easy to read. Vary the side and the height. A change after two or three similar shots is a simple way to stay unpredictable.
+
+## Goalkeeping: watch before you dive
+
+As the keeper you drag to dive. A common mistake is committing too early, which leaves the other side of the goal open. Watch the striker's run-up, wait, then move.
+
+## Pick a side with intent
+
+When you cannot read the shot, choose a side and commit to it fully. A half-hearted dive covers neither the middle nor the corner.
+
+## Think about the whole shootout
+
+One miss or one conceded goal does not decide a match. Rushing the next shot to make up for it often leads to a second mistake. Treat every kick on its own.
+
+## Manage your coins
+
+Each league tier has an in-game coin entry fee, and beating your rival doubles your coins. Higher tiers bring tougher opponents. Move up when you are winning comfortably where you are, and try not to spend nearly everything on one entry. Keeping some coins back gives you another chance if a match goes against you.
+
+## Use the level map
+
+The level map shows the stars you earned on each stage as you work towards the final. If a new stage feels too hard, take a moment to look at what went wrong: your placement, your power or the timing of your dives.
+
+Football League 27 is a single-player game for Android. [Download it on Google Play](https://play.google.com/store/apps/details?id=com.Pgh.Football.league).`,
+    category: "Guides",
+    author: "PlayGame Horizon Team",
+    authorRole: "Studio",
+    date: "2026-11-28",
+    readTime: 2,
+    image: "/images/blog/football-league-27/feature-graphic.jpg",
+    tags: ["Guide","Football","Penalty Shootout"],
+    coverImage: "/images/blog/football-league-27/feature-graphic.jpg",
+    galleryPortrait: true,
+    gallery: [
+      { src: "/images/blog/football-league-27/screenshot-1.jpg", alt: "Aiming a penalty in Football League 27 with target rings in the goal" },
+      { src: "/images/blog/football-league-27/screenshot-2.jpg", alt: "Goalkeeper diving to reach a shot in Football League 27" },
+      { src: "/images/blog/football-league-27/screenshot-4.jpg", alt: "Football League 27 level map with star ratings and a final" },
+    ],
+  },
+  {
+    id: "village-farm-beginners-guide",
+    title: "Village Farm 2027 Beginner's Guide: Your First Days on the Farm",
+    excerpt:
+      "Where to go, what to do first and how to keep your farm earning. A starting guide for new Village Farm 2027 players.",
+    content: `[Village Farm 2027](/games/village-farm-2027) gives you fields to work, animals to look after and loads to move. This guide suggests an order to learn them in.
+
+## Follow the waypoint marker
+
+The blue marker points to where you need to go and shows how far away it is. In your first sessions, let it lead. It takes you around the farm and shows you where things are.
+
+## Prepare the field
+
+Crops start with the soil. Plough the field before you sow. Take your time on the turns and work in rows, so you do not keep covering ground you have already done.
+
+## Grow your crops
+
+Once the field is ready, sow your seeds, water them and wait for them to grow. Wheat, corn and tomatoes are among the crops you can grow.
+
+## Look after the animals
+
+Cows can be milked and chickens give eggs, and there are pigs and goats to care for too. Keeping the cattle yard swept is part of the work as well.
+
+## Choose how to haul
+
+You have two ways to move hay and harvest: the bullock cart and the red tractor. The cart is the traditional choice and part of the village feel. The tractor suits bigger loads and longer trips. Try both and use whichever fits the job.
+
+## A simple routine to start with
+
+- Check the marker for your current mission.
+- Harvest anything that is ready.
+- Plough and sow the empty fields, so something is always growing.
+- Visit the animals.
+- Load up and haul your produce, then sell it.
+
+## Spend coins with a plan
+
+Selling crops and produce earns coins, and coins upgrade your farm. Decide what you are saving for before you spend. An upgrade that helps with a job you do constantly is usually worth more than one you will rarely notice.
+
+## Good to know before you start
+
+The game is free to download and shows ads, which you can remove with a one-time No Ads purchase. You need an internet connection to play. [Get Village Farm 2027 on Google Play](https://play.google.com/store/apps/details?id=com.pgh.village.farm.game2027&hl=en&gl=US).`,
+    category: "Guides",
+    author: "PlayGame Horizon Team",
+    authorRole: "Studio",
+    date: "2026-11-28",
+    readTime: 2,
+    image: "/images/blog/village-farm/feature-graphic.jpg",
+    tags: ["Guide","Farming","Simulation"],
+    coverImage: "/images/blog/village-farm/feature-graphic.jpg",
+    gallery: [
+      { src: "/images/blog/village-farm/screenshot-8.jpg", alt: "Ploughing a field with an ox in Village Farm 2027" },
+      { src: "/images/blog/village-farm/screenshot-4.jpg", alt: "Hauling round hay bales on a bullock cart towards a waypoint marker" },
+      { src: "/images/blog/village-farm/screenshot-2.jpg", alt: "Milking a cow in the cattle yard in Village Farm 2027" },
+    ],
+  },
+  {
     id: "dessert-crush",
     title: "Dessert Crush: Match 3 Puzzle Is Out Now on Google Play",
     excerpt:
@@ -313,11 +487,9 @@ Plenty of studios say they are player-first. For us it comes down to a few pract
 
 These rules shape our design decisions long before we write any code. You can read more about the technical side in our post on [why we build mobile-first](/blog/mobile-first-development).
 
-## What we are working on
+## Our games
 
-Our catalog mixes small, quick-to-play games with a few larger projects that will take longer to finish. Our first releases are Chowk Chase, a one-touch hyper-casual game set in a stylized Lahore, and Star Weaver, a relaxing constellation puzzle game. You can read the [Star Weaver launch notes](/blog/star-weaver-launch) for the story behind it.
-
-In development, we have Horizon Runner, an endless runner with hand-painted environments inspired by South Asian culture, and Bazaar Tycoon, a cozy management sim where you grow a tiny chai stall into a busy marketplace. Further out, we are exploring Cricket Legends, a cricket game built for quick matches, and Project Skyline, a story-driven adventure set in a mystical reimagining of the Hunza valley. The full list, with current status, is always on our [games page](/games).
+*Updated November 2026.* Three of our games are out on Google Play for Android: [Village Farm 2027](/games/village-farm-2027), a 3D farm life game; [Football League 27](/games/football-league-27), a penalty shootout game; and [Dessert Crush](/games/dessert-crush), a match-3 puzzle. The full list is always on our [games page](/games).
 
 ## Why build games in Pakistan
 
@@ -339,7 +511,7 @@ If you want to build games with us, our [careers page](/careers) lists open role
     authorRole: "Studio",
     date: "2025-10-01",
     readTime: 4,
-    image: "/images/blog/intro.jpg",
+    image: "/og-default.jpg",
     tags: ["Studio", "Introduction", "Pakistan"],
     featured: true,
   },
@@ -385,7 +557,7 @@ Mobile-first is as much about design as code. Players often hold the phone in on
 - The game should handle interruptions gracefully, saving progress and pausing when the app goes to the background.
 - Text must be readable on small screens, and important information should never rely on color alone.
 
-Our hyper-casual game Chowk Chase is built around 60-second runs for exactly this reason: it should be easy to play one round while waiting for chai.
+A penalty shootout in [Football League 27](/games/football-league-27) takes only a few minutes for exactly this reason: it should be easy to finish a match while waiting for chai.
 
 ## Plan for unreliable connections
 
@@ -409,7 +581,7 @@ If you are planning a mobile game and want a team that thinks this way, take a l
     authorRole: "Engineering",
     date: "2025-09-15",
     readTime: 4,
-    image: "/images/blog/mobile-first.jpg",
+    image: "/images/blog/football-league-27/feature-graphic.jpg",
     tags: ["Mobile", "Development", "Design"],
     featured: true,
   },
@@ -428,7 +600,7 @@ Content is the hidden multiplier. One new enemy type is not just a model. It is 
 
 ## Find the core loop first
 
-Before planning features, we write down the core loop in one or two sentences: what the player does over and over, and why it is fun. For Chowk Chase it is "dodge traffic, grab snacks, beat your high score in 60 seconds". For Star Weaver it is "connect stars to complete a calm, satisfying constellation".
+Before planning features, we write down the core loop in one or two sentences: what the player does over and over, and why it is fun. For Football League 27 it is "take a penalty, then save one, and outscore your rival". For Dessert Crush it is "swap desserts to match three and clear the board".
 
 Then we build a rough prototype of only that loop, with placeholder art. If the loop is not fun in a grey-box prototype, more features will not save it. If it is fun, we know exactly what every other feature needs to support.
 
@@ -482,56 +654,9 @@ Scoping well is not about thinking small. It is about choosing the version of yo
     authorRole: "Design",
     date: "2025-08-28",
     readTime: 4,
-    image: "/images/blog/scoping.jpg",
+    image: "/og-default.jpg",
     tags: ["Indie", "Production", "Scoping"],
     featured: true,
-  },
-  {
-    id: "star-weaver-launch",
-    title: "Star Weaver Is Out Now — A Quiet Puzzle Game for Busy Lives",
-    excerpt:
-      "Our debut mobile title Star Weaver is now available. A short note on what we built, what we learned, and what's next.",
-    content: `Star Weaver is out now. It is a relaxing puzzle game where you connect stars to form constellations across a dreamy night sky, with more than 60 hand-crafted levels and a gentle lo-fi soundtrack. It is available on mobile and the web.
-
-## A puzzle game for busy lives
-
-Many puzzle games are built to stress you out: countdown timers, limited moves, constant pop-ups. We wanted the opposite. Star Weaver is designed for the moments when you want your brain to be busy but your mind to be calm, such as the end of a long day, a commute, or a short break between tasks.
-
-Each level gives you a scattered field of stars and a simple goal: link them to reveal the constellation hidden inside. Early levels teach the rules gently. Later ones introduce new twists that make you stop and think, without ever feeling punishing.
-
-## What's in the game
-
-- More than 60 hand-crafted levels, each one designed and tested by hand rather than generated automatically
-- A soothing lo-fi soundtrack made to sit in the background while you play
-- A calm pace, so you can play for two minutes or an hour
-- Simple touch controls that feel natural on a phone
-- A web version, so you can play in the browser too
-
-## Why hand-crafted levels
-
-Generating hundreds of levels automatically would have been faster, but generated puzzles often feel random. Designing levels by hand let us control the difficulty curve carefully, so each new idea is introduced, practiced and then combined with earlier ones. It also gave every constellation its own shape and personality.
-
-## What we learned making it
-
-Star Weaver was an early project for our team, and it taught us lessons we now use on every game.
-
-- Small scope is a feature. Keeping the game focused on one satisfying mechanic is what let us polish it properly. We wrote more about this in our post on [scoping an indie game realistically](/blog/scoping-indie-games).
-- Playtesting beats guessing. Levels we thought were easy confused people, and levels we worried about were often favorites. Watching real players was the only reliable way to tune the difficulty.
-- Audio carries the mood. The soundtrack and soft sound effects do as much to make the game relaxing as the visuals do.
-- Performance is part of calm. A game cannot feel relaxing if it stutters, so we tested on modest phones throughout, in line with our [mobile-first approach](/blog/mobile-first-development).
-
-## What's next
-
-We will keep listening to player feedback and improving Star Weaver where it makes sense. Meanwhile, the lessons from this project are going straight into our next games, including Horizon Runner and Bazaar Tycoon. You can follow their progress on our [games page](/games).
-
-If you play Star Weaver, we would love to hear what you think. Tell us about your favorite level, or anything that felt off, through our [contact page](/contact). Thank you for playing.`,
-    category: "Launches",
-    author: "PlayGame Horizon Team",
-    authorRole: "Studio",
-    date: "2025-08-14",
-    readTime: 3,
-    image: "/images/blog/star-weaver.jpg",
-    tags: ["Launch", "Puzzle", "Mobile"],
   },
   {
     id: "hiring-pakistan-game-devs",
@@ -596,14 +721,14 @@ We are a small team in Old Anarkali, Lahore, working on our own games and select
     authorRole: "People",
     date: "2025-07-20",
     readTime: 4,
-    image: "/images/blog/hiring.jpg",
+    image: "/og-default.jpg",
     tags: ["Hiring", "Pakistan", "Culture"],
   },
   {
     id: "cultural-games",
     title: "Making Games That Feel Like Home",
     excerpt:
-      "Why we lean into local flavor — bazaars, chowks, cricket — rather than mimicking Western or Japanese studio aesthetics.",
+      "Why we lean into local flavor, from village farms to busy bazaars, rather than mimicking Western or Japanese studio aesthetics.",
     content: `Walk through Old Anarkali in Lahore on any evening and you will find more game ideas than you could build in a lifetime. Rickshaws weaving through impossible gaps. Shopkeepers bargaining with customers who have been coming for twenty years. Kids playing cricket in a lane with a tennis ball and a taped bat. Yet when you look at the games played across Pakistan, almost none of them look or feel like this.
 
 Most games are set in American cities, European fantasy kingdoms or Japanese-inspired worlds. Those games can be wonderful, but they mean players here rarely see their own streets, food, sports and stories on screen. We think that is a missed opportunity, both creatively and commercially.
@@ -620,20 +745,13 @@ Third, authenticity. We know these places. We grew up with the food, the sports 
 
 ## How this shows up in our games
 
-Local flavor is not one decoration we add at the end. It shapes our settings, mechanics and tone.
-
-- Chowk Chase turns the chaos of Lahore traffic into a one-touch game: dodge rickshaws, grab chaat and survive a 60-second run.
-- Bazaar Tycoon lets players grow a tiny chai stall into a busy marketplace, hiring shopkeepers, haggling with customers and stocking seasonal goods.
-- Cricket Legends is built around the sport that unites the country, designed for quick matches you can finish on a chai break.
-- Project Skyline reimagines the Hunza valley as a mystical setting for a story about family, memory and the mountains.
-
-You can see where each of these stands on our [games page](/games).
+Local flavor is not one decoration we add at the end. It shapes setting, mechanics and tone. [Village Farm 2027](/games/village-farm-2027) is the clearest example: its countryside is inspired by village life across South Asia, and alongside a red tractor you can drive a traditional bullock cart to haul your harvest.
 
 ## Universal mechanics, local wrapping
 
 A game set in Lahore still has to be fun for someone who has never been to Pakistan. Our approach is to keep the core mechanics universal, things like dodging, building, managing and exploring, and let the setting provide the personality.
 
-Anyone can understand "avoid the traffic and collect snacks". A player from Lahore will also smile at the specific rickshaw designs and street food. A player from somewhere else gets a fresh setting they have not seen before. Both enjoy the game, for slightly different reasons.
+Anyone can understand "grow a crop and sell it". A player from South Asia may also recognize the bullock cart from real life. A player from somewhere else gets a setting they have not seen as often. Both can enjoy the game, for slightly different reasons.
 
 ## Avoiding stereotypes
 
@@ -658,7 +776,7 @@ We believe the best way to build a studio with a real identity is to make the ga
     authorRole: "Creative",
     date: "2025-06-10",
     readTime: 4,
-    image: "/images/blog/cultural.jpg",
+    image: "/images/blog/village-farm/feature-graphic.jpg",
     tags: ["Design", "Culture", "Identity"],
   },
 ];
