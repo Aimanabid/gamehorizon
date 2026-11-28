@@ -17,7 +17,7 @@ import ImageCarousel from "@/components/ui/ImageCarousel";
 import VideoPlayer from "@/components/ui/VideoPlayer";
 import { blogPosts } from "@/lib/data/blog";
 import { games, type Game } from "@/lib/data/games";
-import { BASE_URL, faqPageSchema, renderContent, renderInline } from "@/lib/richText";
+import { BASE_URL, faqPageSchema, renderContent, renderInline, videoUploadDate } from "@/lib/richText";
 import { buildMetadata } from "@/lib/seo";
 
 type Params = { id: string };
@@ -112,7 +112,7 @@ export default async function GameDetailPage({
         name: `${game.title} intro video`,
         description: game.description,
         thumbnailUrl: `https://i.ytimg.com/vi/${game.trailer}/hqdefault.jpg`,
-        uploadDate: game.releaseDate,
+        uploadDate: game.releaseDate && videoUploadDate(game.releaseDate),
         embedUrl: `https://www.youtube.com/embed/${game.trailer}`,
         contentUrl: game.trailerLandscape
           ? `https://www.youtube.com/watch?v=${game.trailer}`

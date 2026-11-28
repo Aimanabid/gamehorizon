@@ -7,7 +7,7 @@ import ImageCarousel from "@/components/ui/ImageCarousel";
 import VideoPlayer from "@/components/ui/VideoPlayer";
 import { blogPosts } from "@/lib/data/blog";
 import { buildMetadata } from "@/lib/seo";
-import { BASE_URL, faqPageSchema, renderContent, renderInline } from "@/lib/richText";
+import { BASE_URL, faqPageSchema, renderContent, renderInline, videoUploadDate } from "@/lib/richText";
 
 type Params = { id: string };
 
@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
     name: `${post.title} intro video`,
     description: post.excerpt,
     thumbnailUrl: [`https://i.ytimg.com/vi/${post.videoId}/hqdefault.jpg`, `${BASE_URL}${post.image}`],
-    uploadDate: post.date,
+    uploadDate: videoUploadDate(post.date),
     embedUrl: `https://www.youtube.com/embed/${post.videoId}`,
     contentUrl: post.videoLandscape ? `https://www.youtube.com/watch?v=${post.videoId}` : `https://youtube.com/shorts/${post.videoId}`,
   };
