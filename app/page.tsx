@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     "best game studio Lahore",
     "indie game studio Pakistan",
   ],
+  alternates: { canonical: "https://playgamehorizon.com" },
   openGraph: {
     title: "PlayGame Horizon — Thoughtful Games, Built in Lahore",
     description:

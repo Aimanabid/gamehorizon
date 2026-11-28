@@ -24,7 +24,7 @@ export function buildMetadata({
   const fullTitle = path === "" ? `${SITE_NAME} — ${title}` : `${title} | ${SITE_NAME}`;
 
   return {
-    title: fullTitle,
+    title: { absolute: fullTitle },
     description,
     keywords: [
       "PlayGame Horizon",
@@ -104,10 +104,5 @@ export const siteStructuredData = {
     "@type": "WebSite",
     name: SITE_NAME,
     url: BASE_URL,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${BASE_URL}/games?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
   },
 };
