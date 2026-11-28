@@ -5,7 +5,7 @@ import StatCounter from "@/components/ui/StatCounter";
 
 const stats = [
   { value: 100, suffix: "%", label: "Client Focus" },
-  { value: 10,  suffix: "+", label: "Active Projects" },
+  { value: 3,   suffix: "",  label: "Games on Google Play" },
   { value: 24,  suffix: "/7", label: "Dedicated Support" },
   { value: 1,   suffix: "",  label: "Shared Vision" },
 ];

@@ -54,18 +54,13 @@ export const timeline = [
   },
   {
     year: "2025",
-    title: "First Prototypes Shipped",
-    description: "Released our debut titles Star Weaver and Chowk Chase on mobile — our first steps into the market.",
-  },
-  {
-    year: "2025",
     title: "SECP Registration",
     description: "Officially incorporated as PlayGame Horizon (SMC-Private) Limited with the Securities and Exchange Commission of Pakistan.",
   },
   {
     year: "2026",
-    title: "Expanding the Portfolio",
-    description: "Horizon Runner, Bazaar Tycoon, and Cricket Legends enter active development. Team growing carefully, project by project.",
+    title: "First Games on Google Play",
+    description: "Village Farm 2027, Football League 27 and Dessert Crush launch on Android.",
   },
   {
     year: "Future",
