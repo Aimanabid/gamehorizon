@@ -67,6 +67,12 @@ export function inlineToHtml(text: string) {
   });
 }
 
+// Google requires VideoObject.uploadDate to be a full ISO 8601 datetime with a
+// timezone. Takes a "YYYY-MM-DD" date and pins it to midnight Pakistan time.
+export function videoUploadDate(date: string) {
+  return `${date}T00:00:00+05:00`;
+}
+
 export function faqPageSchema(faqs: { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",
